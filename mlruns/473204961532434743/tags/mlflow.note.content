@@ -1,0 +1,1 @@
+This is the credit card fraud detection project. This experiment contains the implementation of credit card fraud detection using three different machine learning models: LightGBM, RandomForest and XGBoost.
