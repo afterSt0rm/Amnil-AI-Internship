@@ -1,0 +1,10 @@
+artifact_location: mlflow-artifacts:/473204961532434743/models/m-bdbe640f1dad4880be93e205c1b29c97/artifacts
+creation_timestamp: 1758859061365
+experiment_id: '473204961532434743'
+last_updated_timestamp: 1758859174957
+model_id: m-bdbe640f1dad4880be93e205c1b29c97
+model_type: ''
+name: lightbgm_random_search
+source_run_id: cf3f5d5c91bb4781847ddd8be1b5772b
+status: 2
+status_message: null
