@@ -9466,10 +9466,28 @@ Name: count, dtype: int64
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>In DBSCAN there are two major hyperparameters:</p>
 <ul>
-<li><code>eps</code></li>
-<li><code>min_samples</code></li>
+<li><code>eps</code> : The distance that specifies the neighborhoods. Two points are considered to be neighbors if the distance between them are less than or equal to eps.</li>
+<li><code>min_samples</code>: Minimum number of data points to define a cluster.</li>
 </ul>
-<p>It is difficult arbitrarily to say what values will work the best. Therefore, I will first create a matrix of investigated combinations.</p>
+<p>It is difficult arbitrarily to say what values will work the best. Therefore, I will be using both random search and grid search for hyperparameter tuning.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=560caf53-32e1-4a0e-9448-e26c514fe7bb">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><code>Silhouette Score</code>: The Silhouette Score evaluates how well each data point fits within its assigned cluster, and how distinctly separated it is from other clusters.</p>
+<p>Range: [-1, 1].</p>
+<ul>
+<li>1: Perfectly matched to its cluster.</li>
+<li>0: On the boundary.</li>
+<li>-1: Likely assigned to the wrong cluster.</li>
+</ul>
+<p>Example: A point with a high score "belongs" firmly to its group; a low score indicates ambiguity.</p>
 </div>
 </div>
 </div>
