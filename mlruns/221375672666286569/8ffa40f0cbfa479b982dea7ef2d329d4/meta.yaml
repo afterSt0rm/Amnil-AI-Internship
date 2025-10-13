@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/221375672666286569/8ffa40f0cbfa479b982dea7ef2d329d4/artifacts
+end_time: 1758648045092
+entry_point_name: ''
+experiment_id: '221375672666286569'
+lifecycle_stage: active
+run_id: 8ffa40f0cbfa479b982dea7ef2d329d4
+run_name: linear_reg_test
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758648042605
+status: 3
+tags: []
+user_id: aashish
