@@ -37,27 +37,27 @@ def plot_curves(history):
     ----------
     - history: TensorFlow model History object
     """
-    loss = history.history['loss']
-    val_loss = history.history['val_loss']
+    loss = history.history["loss"]
+    val_loss = history.history["val_loss"]
 
-    accuracy = history.history['accuracy']
-    val_accuracy = history.history['val_accuracy']
+    accuracy = history.history["accuracy"]
+    val_accuracy = history.history["val_accuracy"]
 
-    epochs = range(len(history.history['loss']))
+    epochs = range(len(history.history["loss"]))
 
     # Plot loss
-    plt.plot(epochs, loss, label='training_loss')
-    plt.plot(epochs, val_loss, label='val_loss')
-    plt.title('Loss')
-    plt.xlabel('Epochs')
+    plt.plot(epochs, loss, label="training_loss")
+    plt.plot(epochs, val_loss, label="val_loss")
+    plt.title("Loss")
+    plt.xlabel("Epochs")
     plt.legend()
 
     # Plot accuracy
     plt.figure()
-    plt.plot(epochs, accuracy, label='training_accuracy')
-    plt.plot(epochs, val_accuracy, label='val_accuracy')
-    plt.title('Accuracy')
-    plt.xlabel('Epochs')
+    plt.plot(epochs, accuracy, label="training_accuracy")
+    plt.plot(epochs, val_accuracy, label="val_accuracy")
+    plt.title("Accuracy")
+    plt.xlabel("Epochs")
     plt.legend()
 
 
@@ -82,7 +82,7 @@ def preprocess_image(image_path, image_size=224, scale=True):
     # Resize the image
     img = tf.image.resize(img, [image_size, image_size])
     if scale:
-        return img / 255.
+        return img / 255.0
     else:
         return img
 
@@ -98,7 +98,7 @@ def make_predictions(model, class_names, image_path):
     - class_names: class names present in the dataset
     """
     # Import the target image and preprocess it
-    img = preprocess_image(image_path)
+    img = preprocess_image(image_path, scale=False)
 
     # Make a prediction
     pred = model.predict(tf.expand_dims(img, axis=0))
@@ -109,8 +109,11 @@ def make_predictions(model, class_names, image_path):
     else:
         pred_class = class_names[int(tf.round(pred)[0][0])]  # if only one output, round
 
+    # Normalize the image for plotting
+    img_for_plot = img.numpy() / 255.0
+
     # Plot the image and predicted class
-    plt.imshow(img)
+    plt.imshow(img_for_plot)
     plt.title(f"Prediction: {pred_class}")
     plt.axis(False)
 
@@ -131,7 +134,13 @@ def create_tensorboard_callback(save_path, experiment_name):
     ----------
     - callback: TensorBoard callback
     """
-    log_dir = save_path + "/" + experiment_name + "/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    log_dir = (
+        save_path
+        + "/"
+        + experiment_name
+        + "/"
+        + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    )
     tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir)
     print(f"Saving TensorBoard log files to: {log_dir}")
     return tensorboard_callback
@@ -152,24 +161,26 @@ def create_checkpoint_callback(checkpoint_path):
     ----------
     - callback: ModelCheckpoint callback
     """
-    checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
-                                                             save_weights_only=True,
-                                                             save_best_only=False,
-                                                             save_freq="epoch",
-                                                             verbose=1)
+    checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
+        filepath=checkpoint_path,
+        save_weights_only=True,
+        save_best_only=False,
+        save_freq="epoch",
+        verbose=1,
+    )
     return checkpoint_callback
 
 
 def compare_historys(original_history, new_history, initial_epochs=25):
     """
     Compares two TensorFlow model History objects.
-    
+
     Args:
       original_history: History object from original model (before new_history)
       new_history: History object from continued model training (after original_history)
-      initial_epochs: Number of epochs in original_history (new_history plot starts from here) 
+      initial_epochs: Number of epochs in original_history (new_history plot starts from here)
     """
-    
+
     # Get original history measurements
     acc = original_history.history["accuracy"]
     loss = original_history.history["loss"]
@@ -187,19 +198,21 @@ def compare_historys(original_history, new_history, initial_epochs=25):
     # Make plots
     plt.figure(figsize=(8, 8))
     plt.subplot(2, 1, 1)
-    plt.plot(total_acc, label='Training Accuracy')
-    plt.plot(total_val_acc, label='Validation Accuracy')
-    plt.plot([initial_epochs-1, initial_epochs-1],
-              plt.ylim(), label='Start Fine Tuning') # reshift plot around epochs
-    plt.legend(loc='lower right')
-    plt.title('Training and Validation Accuracy')
+    plt.plot(total_acc, label="Training Accuracy")
+    plt.plot(total_val_acc, label="Validation Accuracy")
+    plt.plot(
+        [initial_epochs - 1, initial_epochs - 1], plt.ylim(), label="Start Fine Tuning"
+    )  # reshift plot around epochs
+    plt.legend(loc="lower right")
+    plt.title("Training and Validation Accuracy")
 
     plt.subplot(2, 1, 2)
-    plt.plot(total_loss, label='Training Loss')
-    plt.plot(total_val_loss, label='Validation Loss')
-    plt.plot([initial_epochs-1, initial_epochs-1],
-              plt.ylim(), label='Start Fine Tuning') # reshift plot around epochs
-    plt.legend(loc='upper right')
-    plt.title('Training and Validation Loss')
-    plt.xlabel('epoch')
+    plt.plot(total_loss, label="Training Loss")
+    plt.plot(total_val_loss, label="Validation Loss")
+    plt.plot(
+        [initial_epochs - 1, initial_epochs - 1], plt.ylim(), label="Start Fine Tuning"
+    )  # reshift plot around epochs
+    plt.legend(loc="upper right")
+    plt.title("Training and Validation Loss")
+    plt.xlabel("epoch")
     plt.show()
