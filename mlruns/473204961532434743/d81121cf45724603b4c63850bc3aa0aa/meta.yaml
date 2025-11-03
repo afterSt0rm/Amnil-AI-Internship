@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/473204961532434743/d81121cf45724603b4c63850bc3aa0aa/artifacts
+end_time: 1758880361946
+entry_point_name: ''
+experiment_id: '473204961532434743'
+lifecycle_stage: active
+run_id: d81121cf45724603b4c63850bc3aa0aa
+run_name: xgboost_grid_search
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758880259870
+status: 3
+tags: []
+user_id: aashish
