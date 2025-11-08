@@ -1,3 +1,16 @@
 .env/
 .ipynb_checkpoints/
 __pycache__/
+mlartifacts/
+mlruns/
+credit_card_transactions.csv
+.venv/
+New Plant Diseases Dataset(Augmented)/
+.torchenv/
+truck-movement/
+models/
+coco_eval.py
+coco_utils.py
+engine.py
+transforms.py
+utils.py
