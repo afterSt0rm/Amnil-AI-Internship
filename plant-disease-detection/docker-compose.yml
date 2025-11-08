@@ -1,0 +1,33 @@
+services:
+  plant-disease-detection:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: yoda228/plant-disease-detection:latest
+    ports:
+      - "8001:8001"
+      - "7860:7860"
+    environment:
+      - API_URL=http://localhost:8001
+    volumes:
+      - ./models:/app/models
+      - ./logs:/app/logs
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import requests; exit(0 if requests.get('http://localhost:8001/health').status_code == 200 else 1)",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
