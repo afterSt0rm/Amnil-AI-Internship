@@ -4,6 +4,7 @@ from typing import List
 
 import numpy as np
 import prometheus_client as prom
+import tensorflow as tf
 import uvicorn
 from dotenv import load_dotenv
 from fastapi import BackgroundTasks, FastAPI, File, HTTPException, UploadFile
@@ -174,7 +175,7 @@ if __name__ == "__main__":
     uvicorn.run(
         "app.main:app",
         host="0.0.0.0",
-        port=8000,
+        port=8001,
         reload=True,
         workers=1,  # Multiple workers might cause GPU memory issues
     )

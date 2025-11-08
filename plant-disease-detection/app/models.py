@@ -1,8 +1,9 @@
-import tensorflow as tf
-import numpy as np
 import logging
-from typing import List, Dict
 import time
+from typing import Dict, List
+
+import numpy as np
+import tensorflow as tf
 
 logger = logging.getLogger(__name__)
 
