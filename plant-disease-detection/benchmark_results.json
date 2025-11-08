@@ -1,0 +1,177 @@
+{
+  "single_request": {
+    "status": "success",
+    "total_time": 55.79352378845215,
+    "inference_time": 51.43594741821289,
+    "response_size": 370
+  },
+  "latency": {
+    "total_requests": 50,
+    "successful_requests": 50,
+    "success_rate": 1.0,
+    "avg_latency": 46.5656042098999,
+    "avg_inference_time": 43.13973426818848,
+    "min_latency": 43.344974517822266,
+    "max_latency": 50.68159103393555,
+    "p95_latency": 49.63986873626709,
+    "std_latency": 1.5630895284783455
+  },
+  "throughput": [
+    {
+      "concurrent_users": 1,
+      "duration": 15,
+      "total_requests": 323,
+      "requests_per_second": 21.471840133237095,
+      "avg_latency": 46.44946860086069,
+      "min_latency": 42.73414611816406,
+      "max_latency": 51.84173583984375
+    },
+    {
+      "concurrent_users": 5,
+      "duration": 15,
+      "total_requests": 324,
+      "requests_per_second": 21.288768647094965,
+      "avg_latency": 233.28664273391536,
+      "min_latency": 89.54977989196777,
+      "max_latency": 420.2735424041748
+    },
+    {
+      "concurrent_users": 10,
+      "duration": 15,
+      "total_requests": 327,
+      "requests_per_second": 21.15967545784648,
+      "avg_latency": 466.08247669464953,
+      "min_latency": 96.03333473205566,
+      "max_latency": 609.2302799224854
+    },
+    {
+      "concurrent_users": 20,
+      "duration": 15,
+      "total_requests": 342,
+      "requests_per_second": 21.515937708937138,
+      "avg_latency": 903.4177113694755,
+      "min_latency": 48.737287521362305,
+      "max_latency": 954.495906829834
+    }
+  ],
+  "load_pattern": [
+    {
+      "concurrent_users": 1,
+      "duration": 10,
+      "total_requests": 212,
+      "requests_per_second": 21.165368820871382,
+      "avg_latency": 47.121794718616414,
+      "min_latency": 43.40648651123047,
+      "max_latency": 55.13787269592285
+    },
+    {
+      "concurrent_users": 5,
+      "duration": 10,
+      "total_requests": 225,
+      "requests_per_second": 22.09367596834352,
+      "avg_latency": 224.18715476989746,
+      "min_latency": 54.87537384033203,
+      "max_latency": 242.33341217041016
+    },
+    {
+      "concurrent_users": 10,
+      "duration": 10,
+      "total_requests": 231,
+      "requests_per_second": 22.163506986822508,
+      "avg_latency": 442.42106268416234,
+      "min_latency": 52.733659744262695,
+      "max_latency": 460.7264995574951
+    },
+    {
+      "concurrent_users": 15,
+      "duration": 10,
+      "total_requests": 226,
+      "requests_per_second": 21.192538958011323,
+      "avg_latency": 685.9362948257311,
+      "min_latency": 58.61067771911621,
+      "max_latency": 887.5706195831299
+    },
+    {
+      "concurrent_users": 20,
+      "duration": 10,
+      "total_requests": 239,
+      "requests_per_second": 21.766487212258472,
+      "avg_latency": 880.0896760310089,
+      "min_latency": 59.987783432006836,
+      "max_latency": 936.3603591918945
+    },
+    {
+      "concurrent_users": 10,
+      "duration": 10,
+      "total_requests": 228,
+      "requests_per_second": 21.884270698010933,
+      "avg_latency": 447.71934392159443,
+      "min_latency": 52.80256271362305,
+      "max_latency": 470.28517723083496
+    },
+    {
+      "concurrent_users": 5,
+      "duration": 10,
+      "total_requests": 219,
+      "requests_per_second": 21.424983193371787,
+      "avg_latency": 231.01658146130984,
+      "min_latency": 53.15995216369629,
+      "max_latency": 297.35279083251953
+    }
+  ],
+  "system_metrics": {
+    "timestamp": 1762586720.4617198,
+    "cpu": {
+      "total_percent": 5.0,
+      "per_core_percent": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        9.1,
+        11.1,
+        0.0,
+        10.0
+      ],
+      "core_count": 12,
+      "frequency": 2620.446
+    },
+    "memory": {
+      "percent": 45.6,
+      "used_gb": 6.751350402832031,
+      "available_gb": 8.056224822998047,
+      "total_gb": 14.807575225830078
+    },
+    "swap": {
+      "percent": 0.0,
+      "used_gb": 3.814697265625e-06,
+      "total_gb": 14.806636810302734
+    },
+    "disk": {
+      "percent": 37.8,
+      "used_gb": 75.30334854125977,
+      "free_gb": 123.99692916870117,
+      "total_gb": 201.0
+    },
+    "gpu_metrics": {
+      "gpu_0": {
+        "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "load": 0.0,
+        "memory_used": 632.0,
+        "memory_total": 8188.0,
+        "memory_free": 7175.0,
+        "temperature": 50.0,
+        "driver_version": "N/A"
+      }
+    },
+    "process": {
+      "memory_rss_gb": 1.6429443359375,
+      "memory_vms_gb": 15.539989471435547,
+      "cpu_percent": 0.0
+    }
+  }
+}
