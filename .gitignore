@@ -8,7 +8,6 @@ credit_card_transactions.csv
 New Plant Diseases Dataset(Augmented)/
 .torchenv/
 truck-movement/
-models/
 coco_eval.py
 coco_utils.py
 engine.py
