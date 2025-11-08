@@ -241,7 +241,7 @@ class APIBenchmark:
 if __name__ == "__main__":
     # Initialize benchmark
     benchmark = APIBenchmark(
-        base_url="http://localhost:8000",
+        base_url="http://localhost:8001",
         test_image_path="tests/Cherry Powdery Mildew.jpg",
     )
 
