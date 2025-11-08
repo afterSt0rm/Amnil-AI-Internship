@@ -1,19 +1,20 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException, BackgroundTasks
+import os
+import time
+from typing import List
+
+import numpy as np
+import prometheus_client as prom
+import uvicorn
+from dotenv import load_dotenv
+from fastapi import BackgroundTasks, FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-import uvicorn
-import time
-import numpy as np
-from typing import List
-import prometheus_client as prom
-from prometheus_client import Counter, Histogram, Gauge
+from prometheus_client import Counter, Gauge, Histogram
 
-from .models import PlantDiseaseModel
-from .schemas import PredictionResponse, HealthResponse
 from .logging_config import setup_logging
-from .utils import load_image, get_system_metrics
-import os
-from dotenv import load_dotenv
+from .models import PlantDiseaseModel
+from .schemas import HealthResponse, PredictionResponse
+from .utils import get_system_metrics, load_image
 
 load_dotenv()
 
@@ -141,7 +142,6 @@ async def system_status():
     # Add inference performance metrics if available
     performance_metrics = {}
     if model and hasattr(model, "inference_times"):
-        # You can track inference times in your model class
         performance_metrics = {
             "avg_inference_time": np.mean(model.inference_times)
             if model.inference_times
