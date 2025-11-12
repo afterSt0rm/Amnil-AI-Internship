@@ -1,18 +1,19 @@
-import gradio as gr
-import requests
-import time
-from PIL import Image
 import io
 import os
-import psutil
+import time
+
 import GPUtil
+import gradio as gr
+import psutil
+import requests
 from dotenv import load_dotenv
+from PIL import Image
 
 # Load environment variables from .env file
 load_dotenv()
 
 # API configuration
-API_URL = os.getenv("API_URL", "http://localhost:8000")
+API_URL = os.getenv("API_URL", "http://localhost:8001")
 
 
 def get_system_metrics():
