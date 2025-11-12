@@ -25,11 +25,6 @@ COPY app/ ./app/
 COPY models/ ./models/
 COPY frontend/ ./frontend/
 
-# Create non-root user
-RUN useradd -m -u 1000 appuser
-RUN chown -R appuser:appuser /app
-USER appuser
-
 # Expose ports
 EXPOSE 8001 7860
 
