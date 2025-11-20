@@ -7563,7 +7563,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
@@ -7572,10 +7572,10 @@ a.anchor-link {
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dataset</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">huggingface_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">HfApi</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">huggingface_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">notebook_login</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">transformers.integrations</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLflowCallback</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dataset</span><span class="p">,</span> <span class="n">concatenate_datasets</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">optimum.onnxruntime</span><span class="w"> </span><span class="kn">import</span> <span class="n">ORTModelForSequenceClassification</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">precision_recall_fscore_support</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">Trainer</span><span class="p">,</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModelForSequenceClassification</span><span class="p">,</span> <span class="n">TrainingArguments</span><span class="p">,</span> <span class="n">DataCollatorWithPadding</span>
@@ -7635,12 +7635,12 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>2025/11/19 15:59:29 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
-2025/11/19 15:59:29 INFO mlflow.store.db.utils: Updating database tables
-2025-11-19 15:59:29 INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
-2025-11-19 15:59:29 INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
-2025-11-19 15:59:29 INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
-2025-11-19 15:59:29 INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+<pre>2025/11/20 17:14:45 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2025/11/20 17:14:45 INFO mlflow.store.db.utils: Updating database tables
+2025-11-20 17:14:45 INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+2025-11-20 17:14:45 INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+2025-11-20 17:14:45 INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+2025-11-20 17:14:45 INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
 </pre>
 </div>
 </div>
@@ -7712,12 +7712,100 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b8a73d65-1c7d-4d86-8910-1163b8022e50">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a0bf4963-da25-47ac-98b2-01da29e73aa4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>train set - 6000 (75%)</li>
+<li>test set - 1996 (25%)</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a28de497-6a3f-4ead-9fb0-905b156144b4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Combine train and test sets</span>
+<span class="n">nepali_sentiment</span> <span class="o">=</span> <span class="n">concatenate_datasets</span><span class="p">([</span>
+    <span class="n">nepali_sentiment</span><span class="p">[</span><span class="s1">'train'</span><span class="p">],</span> 
+    <span class="n">nepali_sentiment</span><span class="p">[</span><span class="s1">'test'</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="c1"># Shuffle and split the combined dataset with 95% train and 5% test</span>
+<span class="n">nepali_sentiment</span> <span class="o">=</span> <span class="n">nepali_sentiment</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+    <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">42</span>            
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b9f0a401-51f5-4936-8112-10e8e839b4e4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">nepali_sentiment</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>DatasetDict({
+    train: Dataset({
+        features: ['text', 'label'],
+        num_rows: 7596
+    })
+    test: Dataset({
+        features: ['text', 'label'],
+        num_rows: 400
+    })
+})</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5fba4cdd-7bfe-4939-8f31-1c0a54353d44">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>train set - 7596 (95%)</li>
+<li>test set - 400 (5%)</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b8a73d65-1c7d-4d86-8910-1163b8022e50">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">nepali_sentiment</span><span class="p">[</span><span class="s1">'train'</span><span class="p">]</span>
@@ -7731,11 +7819,11 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Dataset({
     features: ['text', 'label'],
-    num_rows: 6000
+    num_rows: 7596
 })</pre>
 </div>
 </div>
@@ -7746,7 +7834,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">nepali_sentiment</span><span class="p">[</span><span class="s1">'test'</span><span class="p">]</span>
@@ -7760,11 +7848,11 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Dataset({
     features: ['text', 'label'],
-    num_rows: 1996
+    num_rows: 400
 })</pre>
 </div>
 </div>
@@ -7775,7 +7863,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">nepali_sentiment</span><span class="p">[</span><span class="s1">'train'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -7789,10 +7877,10 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>{'text': 'बजार ले जसरी ट्रेन्ड चेन्ज गर्यो यो हेर्दा तत्काल प्रोफिट बूकिङ आउने सम्भावना रहेन ! भोलि अर्को ट्रेन्ड समात्न सक्ने अबस्था पनि दरो छ',
- 'label': '2'}</pre>
+<pre>{'text': 'यो हाम्रो समाजको जातीय बिभेदका कारण  धेरै मन दुखेर आउँछ । हामी मान्छेहरु किन पसुहरु भन्दा पनि असिक्छित भएका हौ । हामी कस्तो समाज मा बसेका छौ । यो समाज कहिले सिक्छित र सुधृन्छ होला।मेन कुरा त कानुन, शिक्षा र बिकास को कमिले होला । अब रबि सर यो जातीय बिभेदको बारेमा दरो खरो तरिकाले गाउँ टोल सहर सबै तिर तपाइको टिमले रिपोर्ट गरेर तपाइको आवज बाट असिक्छित मान्छे हरुलाइ सिक्छित बनाउने काम गर्नु होला',
+ 'label': '0'}</pre>
 </div>
 </div>
 </div>
@@ -7802,7 +7890,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">nepali_sentiment</span><span class="p">[</span><span class="s1">'test'</span><span class="p">][:</span><span class="mi">3</span><span class="p">]</span>
@@ -7816,12 +7904,12 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>{'text': ['असाध्यै राम्रो कार्यक्रम आयोजना गरिएको छ हजुरहरुको यो महान् कामले महान्ता झल्किएको छ महानायक त्यो हो जस्ले समाज को लागी महान काम गर्ने छ त्यो एकमात्र हिरो राजेश हमाल जय नेपाल।',
-  'राम्रो कार्यक्रम, पहिलो सिजनले समेटेको कार्यक्रम पुरै हेरेँ र यो सिजनको हेर्न सुरु गरेको छु, यसले सार्थकता पाउँछ भन्नेमा आशावादी छु, केही अन्तरजातीय बिबाह वा उच्च समुदाय भनेर चिनिएको समुदायका केही परिवारको सफल भएका उदाहरणहरू र त्यहाँ के कस्ता सही र गलत भएका छन् भन्ने कुरालाई नि समेट्न पाएँ राम्रो हुने थियो की जस्तो लाग्छ । धन्यवाद !!!',
-  'महानायक राजेश हमाल तपाई साँच्चै धन्यवादको पात्र हुनुहुन्छ। यो कार्यक्रम लाई मन नपराउनेहरुको कमि छैन यँहा तर जातिय उत्पिडनमा परेकाहरूलाई यो कार्यक्रमले केही हद् सम्म न्याय पाउने आशा जगाउने छ। जय होस्। You are really Great sir'],
- 'label': ['1', '1', '1']}</pre>
+<pre>{'text': ['अन्तरजातीय बिवाह धेरै जसो सफल नहुनुमा।साना जातमा हुनेहरुको।आर्थिक स्थिति कमजोर हुनु पनि हो।किनकी हाम्रो समाजमा जातभात पछि अर्को कमजोरी आर्थिक सम्पन्नता को दृस्ठिकोण पनि हो।कतिपय परिवारले जातिए हिसाबले स्विकारे पनि आर्थिक हिसाबले स्विकार्न सक्दैनन।',
+  'आहा धेरै खुसी लाग्यो रबि जि बोल्दा पनि मज्जा आउँछ , नियुज 24 को सिधा कुरा जनता सङ्ग हेर्नै मन लाग्दैन आजकाल।।',
+  'रबि दादा हजुरको यहि साहासि पन ले नेपालिको मन जित्नु भएको छ ,आज खुशि लाग्यो फेरि हजुरको कार्यक्रम हेर्न पाउदा'],
+ 'label': ['0', '1', '1']}</pre>
 </div>
 </div>
 </div>
@@ -7842,7 +7930,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">nepali_sentiment</span><span class="o">.</span><span class="n">set_format</span><span class="p">(</span><span class="s1">'pandas'</span><span class="p">)</span>
@@ -7859,7 +7947,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7885,53 +7973,53 @@ a.anchor-link {
 </thead>
 <tbody>
 <tr>
-<th>1483</th>
-<td>हेम थापा जि तपाई लाई गाली गर्न त मन छैन तरपनी ...</td>
+<th>3072</th>
+<td>दाइलाई दबाइ गर्नुको लागि पो टिकटकमा गिफ्टको ला...</td>
 <td>0</td>
 </tr>
 <tr>
-<th>2185</th>
-<td>यो देश लाई मिलाइ मिलाइ भाग लाई लाई सके</td>
+<th>927</th>
+<td>अत्यन्तै राम्रो प्रस्तुति रबि सर।🙏🙏🙏🇳🇵🇳🇵🇳🇵🌺</td>
 <td>0</td>
 </tr>
 <tr>
-<th>2520</th>
-<td>यस्तो👆 स्टिङ हान्नु परो के दाजु!</td>
+<th>6338</th>
+<td>धन्यबाद अंकल सबै कलाकारको कुरा खोतलेर बाहिर लि...</td>
+<td>1</td>
+</tr>
+<tr>
+<th>420</th>
+<td>Thank you so much #ghumante ..अर्को चोटि बाजुर...</td>
+<td>1</td>
+</tr>
+<tr>
+<th>863</th>
+<td>ब्याटल पछि म टिम राजुबाट टिम प्रबिशामा छु । मल...</td>
+<td>1</td>
+</tr>
+<tr>
+<th>5036</th>
+<td>पशु मन्त्रि भनेको सुन्न मन लाग्यो है मलाई नि 😄😄😄</td>
 <td>0</td>
 </tr>
 <tr>
-<th>3721</th>
-<td>रबि लामिछाने को बिरोध गर्ने हरुले पिलिज यो कार...</td>
+<th>3169</th>
+<td>अबको दिनमा दलित कोटा होईन गरीब कोटा दिनु पर्छ ...</td>
 <td>2</td>
 </tr>
 <tr>
-<th>3727</th>
-<td>रबि जि जनतासग सिदा कुरा सुन्न पाउँदा मनै देखि ...</td>
+<th>2927</th>
+<td>👏🙏💐सिधा कुरा कार्यक्रम अब ट्रेन्डिङ १ मा लेराउ...</td>
+<td>2</td>
+</tr>
+<tr>
+<th>4049</th>
+<td>नमस्कार रबि जि</td>
 <td>1</td>
 </tr>
 <tr>
-<th>4524</th>
-<td>अब प्रधानमन्त्री रबि लामिछाने भए मात्रै देश बन्छ,</td>
-<td>1</td>
-</tr>
-<tr>
-<th>234</th>
-<td>यस्ता भ्रष्टहरुलाई रोजेर पठाउने हामी जनता कस्त...</td>
-<td>0</td>
-</tr>
-<tr>
-<th>4735</th>
-<td>सलुट रबि सर</td>
-<td>1</td>
-</tr>
-<tr>
-<th>5839</th>
-<td>अत्यन्तै आनन्दायक र प्रसन्सायोग्य  श्र्बयदृश्य...</td>
-<td>1</td>
-</tr>
-<tr>
-<th>2939</th>
-<td>गाऊमा मात्रकिन छर्के हुन्छ काठमाडौं मा किन हुद...</td>
+<th>6341</th>
+<td>हाम्रो नेता,मन्त्री हरु कुर्सी तानातान गर्दै ब...</td>
 <td>0</td>
 </tr>
 </tbody>
@@ -7946,7 +8034,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'text'</span><span class="p">]</span>
@@ -7960,9 +8048,9 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>'बजार ले जसरी ट्रेन्ड चेन्ज गर्यो यो हेर्दा तत्काल प्रोफिट बूकिङ आउने सम्भावना रहेन ! भोलि अर्को ट्रेन्ड समात्न सक्ने अबस्था पनि दरो छ'</pre>
+<pre>'यो हाम्रो समाजको जातीय बिभेदका कारण  धेरै मन दुखेर आउँछ । हामी मान्छेहरु किन पसुहरु भन्दा पनि असिक्छित भएका हौ । हामी कस्तो समाज मा बसेका छौ । यो समाज कहिले सिक्छित र सुधृन्छ होला।मेन कुरा त कानुन, शिक्षा र बिकास को कमिले होला । अब रबि सर यो जातीय बिभेदको बारेमा दरो खरो तरिकाले गाउँ टोल सहर सबै तिर तपाइको टिमले रिपोर्ट गरेर तपाइको आवज बाट असिक्छित मान्छे हरुलाइ सिक्छित बनाउने काम गर्नु होला'</pre>
 </div>
 </div>
 </div>
@@ -7972,7 +8060,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -7986,17 +8074,17 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>label
-1     2378
-0     2377
-2     1236
--        5
-20       1
+1     3107
+0     2828
+2     1650
+-        6
+o        2
 11       1
-o        1
 --       1
+20       1
 Name: count, dtype: int64</pre>
 </div>
 </div>
@@ -8007,142 +8095,10 @@ Name: count, dtype: int64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'-'</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>text</th>
-<th>label</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>4344</th>
-<td>कुरा सुन्दा हासो र अनुहार  हेर्दा मुटु त धुक ध...</td>
-<td>-</td>
-</tr>
-<tr>
-<th>4462</th>
-<td>आझै हरेक न्याय नपायक जन्ता न्याय दिन सफल होस  ...</td>
-<td>-</td>
-</tr>
-<tr>
-<th>4741</th>
-<td>बैदेशिक रोजगारीमा जाने दाजुभाइ दिदिबहिनीहरु सब...</td>
-<td>-</td>
-</tr>
-<tr>
-<th>5309</th>
-<td>जातिय बिभेद गर्नु पर्छ?</td>
-<td>-</td>
-</tr>
-<tr>
-<th>5437</th>
-<td>रबि सर 🇳🇵७:३५ मिनेट का लागि मात्रै अरुको लागि ...</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9900d0d7-fe01-411f-9994-8a7428103f55">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'20'</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>text</th>
-<th>label</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>850</th>
-<td>उहाँ बाट नेपाल सप्रिने भन्दा बिग्रेर जान्छ।</td>
-<td>20</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1db85734-5b93-4cfb-94d9-5103add8bb46">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'11'</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'-'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -8179,9 +8135,34 @@ Name: count, dtype: int64</pre>
 </thead>
 <tbody>
 <tr>
-<th>3883</th>
-<td>लाखौं  लाख सफलता  को सुभकामना रबि सर</td>
-<td>11</td>
+<th>83</th>
+<td>#Justisforchorimayamaharzan</td>
+<td>-</td>
+</tr>
+<tr>
+<th>652</th>
+<td>जातिय बिभेद गर्नु पर्छ?</td>
+<td>-</td>
+</tr>
+<tr>
+<th>1289</th>
+<td>बैदेशिक रोजगारीमा जाने दाजुभाइ दिदिबहिनीहरु सब...</td>
+<td>-</td>
+</tr>
+<tr>
+<th>1984</th>
+<td>कुरा सुन्दा हासो र अनुहार  हेर्दा मुटु त धुक ध...</td>
+<td>-</td>
+</tr>
+<tr>
+<th>3721</th>
+<td>रबि सर 🇳🇵७:३५ मिनेट का लागि मात्रै अरुको लागि ...</td>
+<td>-</td>
+</tr>
+<tr>
+<th>7046</th>
+<td>आझै हरेक न्याय नपायक जन्ता न्याय दिन सफल होस  ...</td>
+<td>-</td>
 </tr>
 </tbody>
 </table>
@@ -8190,7 +8171,7 @@ Name: count, dtype: int64</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d8da41db-5ab7-4263-8ffa-28e3130ce60c">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9900d0d7-fe01-411f-9994-8a7428103f55">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8198,7 +8179,7 @@ Name: count, dtype: int64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'o'</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'20'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -8235,9 +8216,9 @@ Name: count, dtype: int64</pre>
 </thead>
 <tbody>
 <tr>
-<th>5251</th>
-<td>रबि दाजु नमस्कार हजुरकाे हरेक कार्यक्रम नछुटाई...</td>
-<td>o</td>
+<th>6286</th>
+<td>उहाँ बाट नेपाल सप्रिने भन्दा बिग्रेर जान्छ।</td>
+<td>20</td>
 </tr>
 </tbody>
 </table>
@@ -8246,7 +8227,7 @@ Name: count, dtype: int64</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=006b6fac-9baf-4721-ab04-38e8d0122aaa">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1db85734-5b93-4cfb-94d9-5103add8bb46">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8254,7 +8235,7 @@ Name: count, dtype: int64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'--'</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'11'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -8291,9 +8272,9 @@ Name: count, dtype: int64</pre>
 </thead>
 <tbody>
 <tr>
-<th>5654</th>
-<td>साँचो अर्थमा अमेरिका एक आफैमा बिस्व हो, संसार ...</td>
-<td>--</td>
+<th>3964</th>
+<td>लाखौं  लाख सफलता  को सुभकामना रबि सर</td>
+<td>11</td>
 </tr>
 </tbody>
 </table>
@@ -8302,7 +8283,7 @@ Name: count, dtype: int64</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6fc4e7a0-1985-40da-ac2e-2d6e87f9a06f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d8da41db-5ab7-4263-8ffa-28e3130ce60c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8310,8 +8291,7 @@ Name: count, dtype: int64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 0 is negative</span>
-<span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'o'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -8348,69 +8328,23 @@ Name: count, dtype: int64</pre>
 </thead>
 <tbody>
 <tr>
-<th>18</th>
-<td>भारत-मधेस र नेपाल-चीन सम्बन्ध विग्रन्छ, मधेसी ...</td>
-<td>0</td>
+<th>2783</th>
+<td>रबि दाजु नमस्कार हजुरकाे हरेक कार्यक्रम नछुटाई...</td>
+<td>o</td>
 </tr>
 <tr>
-<th>25</th>
-<td>लेखनाथ न्यौपानेको खुलासा,महाधिबेशनमा एमसीसीको ...</td>
-<td>0</td>
-</tr>
-<tr>
-<th>28</th>
-<td>जे गरेपनि एमसीसीले संकट निम्ताउने देखियो' | Ge...</td>
-<td>0</td>
-</tr>
-<tr>
-<th>34</th>
-<td>यो भ्रस्टाचारि लाई किन येति घमण्ड ?? ७० करोड क...</td>
-<td>0</td>
-</tr>
-<tr>
-<th>36</th>
-<td>👉️ ७० करोडको अझै कति धेरै चुरिफुरी छ थुक्क हाम...</td>
-<td>0</td>
-</tr>
-<tr>
-<th>...</th>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr>
-<th>5985</th>
-<td>बाहुनवादी सोँच सस्कार र बाहुनवादी राज्य संरचना...</td>
-<td>0</td>
-</tr>
-<tr>
-<th>5988</th>
-<td>मलाई मनमा लागेको बाहुन साथि हरु लाई यो कार्यक्...</td>
-<td>0</td>
-</tr>
-<tr>
-<th>5990</th>
-<td>हेला गर्नु हुन्न भन्ने जम्मा यतिका मान्छे मा ज...</td>
-<td>0</td>
-</tr>
-<tr>
-<th>5991</th>
-<td>जात व्यवस्था हिन्दुवाद र ब्राह्मणवादको पराकाष्...</td>
-<td>0</td>
-</tr>
-<tr>
-<th>5992</th>
-<td>कामी ले दमाई लाई दमाई ले सार्की लाई छुवाछूत गर...</td>
-<td>0</td>
+<th>3896</th>
+<td>अन्याय मा परेका को मा मात्र नगई अन्याय गर्नेहर...</td>
+<td>o</td>
 </tr>
 </tbody>
 </table>
-<p>2377 rows × 2 columns</p>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=334cd8ee-b1f2-478c-8e94-50f1f11cc414">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=006b6fac-9baf-4721-ab04-38e8d0122aaa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8418,8 +8352,7 @@ Name: count, dtype: int64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 1 is neutral</span>
-<span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'1'</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'--'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -8456,69 +8389,18 @@ Name: count, dtype: int64</pre>
 </thead>
 <tbody>
 <tr>
-<th>1</th>
-<td>1000 अंकले घटेको नेप्से 200 अंकले बढ्नु ठूलो क...</td>
-<td>1</td>
-</tr>
-<tr>
-<th>4</th>
-<td>राम्रो भयो️️</td>
-<td>1</td>
-</tr>
-<tr>
-<th>6</th>
-<td>जानकारीको लागि धन्यवाद रामहरी ब्रदर</td>
-<td>1</td>
-</tr>
-<tr>
-<th>38</th>
-<td>जसले जे सुकै भनेपनि गोकुल बास्कोटा  काभ्रेको ब...</td>
-<td>1</td>
-</tr>
-<tr>
-<th>44</th>
-<td>गोकुलजीले भनिसके त - भ्रस्टाचार गरेको रहेछ भने...</td>
-<td>1</td>
-</tr>
-<tr>
-<th>...</th>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr>
-<th>5993</th>
-<td>जुन सोछ, बिचार लाई आत्मा साथ गरेर अगाडि बढिरहन...</td>
-<td>1</td>
-</tr>
-<tr>
-<th>5994</th>
-<td>समाजको ऐना र यथार्थ , यहाहरुको प्रयासलाई सदैव ...</td>
-<td>1</td>
-</tr>
-<tr>
-<th>5995</th>
-<td>समाज परिवर्तन गराउन लाई अरु को मुख हेर्ने भन्द...</td>
-<td>1</td>
-</tr>
-<tr>
-<th>5998</th>
-<td>बधाई र सुभकामना ।।</td>
-<td>1</td>
-</tr>
-<tr>
-<th>5999</th>
-<td>कार्यक्रम एकदमै सकारात्मक छ। निरन्तरता पाओस्।</td>
-<td>1</td>
+<th>4368</th>
+<td>साँचो अर्थमा अमेरिका एक आफैमा बिस्व हो, संसार ...</td>
+<td>--</td>
 </tr>
 </tbody>
 </table>
-<p>2378 rows × 2 columns</p>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=977df526-ebf3-4951-be10-a475c9113696">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6fc4e7a0-1985-40da-ac2e-2d6e87f9a06f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8526,8 +8408,8 @@ Name: count, dtype: int64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 2 is positive</span>
-<span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'2'</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 0 is negative</span>
+<span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -8565,27 +8447,243 @@ Name: count, dtype: int64</pre>
 <tbody>
 <tr>
 <th>0</th>
-<td>बजार ले जसरी ट्रेन्ड चेन्ज गर्यो यो हेर्दा तत्...</td>
-<td>2</td>
+<td>यो हाम्रो समाजको जातीय बिभेदका कारण  धेरै मन द...</td>
+<td>0</td>
 </tr>
 <tr>
 <th>2</th>
-<td>होइन यो सानिमा बैंक ले bonus घोसणा गरेको २ महि...</td>
-<td>2</td>
+<td>म बारम्वार कमेण्टमा भन्ने गर्छु सरकारी सम्यन्त...</td>
+<td>0</td>
 </tr>
 <tr>
 <th>3</th>
-<td>खैँ MBJC प्रति कित्तामा रू,10/-ले बढेर आज रू,1...</td>
-<td>2</td>
+<td>आम्म्दनी आठनी खर्च  २ रूपेया भने को नेपाल मा य...</td>
+<td>0</td>
+</tr>
+<tr>
+<th>8</th>
+<td>अब माओवादी रहेन समयमै काङ्ग्रेस तिर गाभ्नुस</td>
+<td>0</td>
+</tr>
+<tr>
+<th>9</th>
+<td>थूक्क यस्ता खुराफाती  खड्केको  हलिहरु लाइ पनि ...</td>
+<td>0</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>7575</th>
+<td>थुक्क साला गाेरूहरू</td>
+<td>0</td>
+</tr>
+<tr>
+<th>7586</th>
+<td>❤⬇            नत्र पाप लाग्छ नी ⬇❤❤</td>
+<td>0</td>
+</tr>
+<tr>
+<th>7589</th>
+<td>MCC परतन्त्र चाहिदैन।</td>
+<td>0</td>
+</tr>
+<tr>
+<th>7590</th>
+<td>मलाइ हजुरको whatsap वा imo नम्नर चाहियो</td>
+<td>0</td>
+</tr>
+<tr>
+<th>7592</th>
+<td>तपाईंहरू आफैले प्रयोग गर्ने मोबाइल को बारेमा ध...</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>2828 rows × 2 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=334cd8ee-b1f2-478c-8e94-50f1f11cc414">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 1 is neutral</span>
+<span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'1'</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>text</th>
+<th>label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>1</th>
+<td>जो स्वयं आफुलाई महान सम्झेर बसेको छ,</td>
+<td>1</td>
+</tr>
+<tr>
+<th>4</th>
+<td>अरु कुरो थाहा भएन ।  हेम थापा दाई महान सच्चा ए...</td>
+<td>1</td>
 </tr>
 <tr>
 <th>5</th>
-<td>मध्यभोटेकोशिको शेयर ,, कर्मचारी संञ्चयकोष का स...</td>
-<td>2</td>
+<td>बधाईछ सर सधै  निरीह मानिसहरुकोअावाज बुलन्द पार...</td>
+<td>1</td>
+</tr>
+<tr>
+<th>6</th>
+<td>घमण्ड भएर अगाडी बढनु भन्दा ज्ञानि भएर हार्नु न...</td>
+<td>1</td>
 </tr>
 <tr>
 <th>7</th>
-<td>हाईड्रो र फाइनान्स बुम बुम भन्न छोडिएछ त ?</td>
+<td>जननेता, राजनेता तथा नेपाली राजनीतिको महानायक :...</td>
+<td>1</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>7582</th>
+<td>समाज परिवर्तनको लागि अहम भुमिका निभाउन सकोस हा...</td>
+<td>1</td>
+</tr>
+<tr>
+<th>7583</th>
+<td>अति राम्रो कार्यकर्म</td>
+<td>1</td>
+</tr>
+<tr>
+<th>7591</th>
+<td>हाम्रो देश उज्यालो राख्न सक्ने समाज सेबी रबि ल...</td>
+<td>1</td>
+</tr>
+<tr>
+<th>7593</th>
+<td>finally मेरो जन्म भुमी को भिडियो लाई सबै नेपाल...</td>
+<td>1</td>
+</tr>
+<tr>
+<th>7594</th>
+<td>यो गित नसुनी त दशै आएको जस्तो नि लाग्दैन हौ मल...</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>3107 rows × 2 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=977df526-ebf3-4951-be10-a475c9113696">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 2 is positive</span>
+<span class="n">df_train</span><span class="p">[</span><span class="n">df_train</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'2'</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>text</th>
+<th>label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>15</th>
+<td>20 घन्टा काम गर्नी अरे अनि लाइभमा मात्रा धेरै ...</td>
+<td>2</td>
+</tr>
+<tr>
+<th>19</th>
+<td>छत्र लकाई खड्का</td>
+<td>2</td>
+</tr>
+<tr>
+<th>25</th>
+<td>आयो आयो</td>
+<td>2</td>
+</tr>
+<tr>
+<th>36</th>
+<td>नेता रे बाउ चाइ, चुनाब नजिकै आउदेछ नेता ज्यु।</td>
+<td>2</td>
+</tr>
+<tr>
+<th>46</th>
+<td>नेपालको चर्च र एनजिओ-आइएनजियोमा गैरदलित र गैरज...</td>
 <td>2</td>
 </tr>
 <tr>
@@ -8594,33 +8692,33 @@ Name: count, dtype: int64</pre>
 <td>...</td>
 </tr>
 <tr>
-<th>5947</th>
-<td>नेपालका लागी नेपाली</td>
+<th>7584</th>
+<td>Uber ले जम्मा 12 घन्टा मत्र drive गर्न दिन्छ त...</td>
 <td>2</td>
 </tr>
 <tr>
-<th>5984</th>
-<td>जबसम्म थर थाहाहुँदैन तबसम्म विभेद हुँदैन, थर थ...</td>
+<th>7585</th>
+<td>ब्याटल पछि LIVE ROUND मा प्रवेश गरेको छु । मला...</td>
 <td>2</td>
 </tr>
 <tr>
-<th>5986</th>
-<td>यो सिजन मा एस कुमार दाइ लाई पनि समाबेस गरेको भ...</td>
+<th>7587</th>
+<td>हौवा पत्रकार , भुमिकामा सम्पुर्ण पार्टीका जरो ...</td>
 <td>2</td>
 </tr>
 <tr>
-<th>5996</th>
-<td>Filmy क्षेत्रमा धेरै गर्नु भयो,,अब समाज र देश ...</td>
+<th>7588</th>
+<td>नारायण काजी अदक्ष भए ठिक हुन्छ</td>
 <td>2</td>
 </tr>
 <tr>
-<th>5997</th>
-<td>यस्तै यस्तै कार्यक्रम अझ बढी हुन जरुरी छ कुना ...</td>
+<th>7595</th>
+<td>प्रकाश सर को कार्यक्रम नहेरी खाना खानै मन लाग्...</td>
 <td>2</td>
 </tr>
 </tbody>
 </table>
-<p>1236 rows × 2 columns</p>
+<p>1650 rows × 2 columns</p>
 </div>
 </div>
 </div>
@@ -8631,7 +8729,7 @@ Name: count, dtype: int64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Bar graph for train dataset</span>
@@ -8672,7 +8770,7 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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Ydq0ael+vI3N74uhPor7N27cONXwb8yqVavC8uXLyy0AUFlq7AEAPvGTn/wkheo999wzNGnSJPW5/+lPf5qa1kcx1Eexhr6seL+4Ld527NixfIGradPQrl270j4VjR49Olx22WVeBwCqRI09AMAn7rnnnjB+/PgwYcKE8PLLL4c77rgjNZ+PtzVpxIgRYdmyZaVl/vz5XhMAKk2NPQDAJy644IJUax/7yke9e/cO//M//5Nq1IcOHRo6d+6c1i9atCiNil8U7++///7p57jP4sWLy53TtWvXppHyi/+/ohYtWqQFAKpCjT0AwCc++uij1Be+rNgkf/369ennOA1eDOexH35RbLof+87369cv3Y+3S5cuDTNnziztM3Xq1PQYsS8+AFQ3NfYAAJ84/vjjU5/67t27h7333ju88sor4dprrw3f+9730vZGjRqFc889N1xxxRVh9913T0E/znsfR7ofPHhw2qdXr17hqKOOCmeccUaaEm/NmjVh2LBhqRWAEfEBqAmCPQDAJ+K0dDGon3322ak5fQziP/jBD8LIkSNL5+jCCy8MH374YZqXPtbMH3rooWl6u5YtW5b2if30Y5jv379/agEwZMiQcMMNNzjPANQIwR4A4BOtWrVK89THZVNirf2oUaPSsilxBPw4AB8A1AZ97AEAACBjgj0AAABkTLAHAACAjAn2AAAAkDHBHgAAADIm2AMAAEDGBHsAAADImGAPAAAAGRPsAQAAIGOCPQAAAGRMsAcAAICMCfYAAACQMcEeAAAAMibYAwAAQMYEewAAAMiYYA8AAAAZq9NgP3r06NC3b9/QqlWr0LFjxzB48OAwd+7ccvusXLkynHPOOaF9+/Zh++23D0OGDAmLFi0qt8+7774bjj322LDtttumx7ngggvC2rVry+3z5JNPhi9+8YuhRYsWYbfddgu33357rTxHAAAA2GqD/VNPPZVC+/Tp08Njjz0W1qxZEwYOHBg+/PDD0j7nnXdeeOihh8LEiRPT/gsWLAgnnnhiafu6detSqF+9enV4/vnnwx133JFC+8iRI0v7zJs3L+1zxBFHhFdffTWce+654fvf/3545JFHav05AwAAQHVqGurQ5MmTy92PgTzWuM+cOTMcdthhYdmyZeE3v/lNmDBhQjjyyCPTPuPGjQu9evVKFwMOPvjg8Oijj4Y333wzPP7446FT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"/>
+<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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Gsoa1VQGKzFw4MBUXVhp3X/913/ldcOHD19u/88++2y5dT/60Y/K1ltvvbL58+eXr+vfv39Z165dy+9PmTIlP2a7du3KPvnkk/L1DzzwQF7/0EMPfeFr9OSTT+b97r333pXus9NOO5VtuOGGX3is48ePz49zxx13lK9Lj5nWpd9Rnef72muvfemxffjhh2XrrLNO2S9+8YtK6994442yJk2aVFp/yCGHVDp3NSm9ttttt90X7rOi5/w///M/+Tk+88wz5esuuOCCvO7www+vtO+pp56a1//5z39e5ee+7Pumus9j1KhR+Riuvfba8nXpcdPjV3y/pHO9qn8fFd/PrVq1Kps5c+YKt912222VnldaN2jQoPJ1S5cuzb+/WbNmZf/85z8rvc+XfS+u6DFXdmxJWp9en5K+ffvm3/PBBx+Ur5s2bVrZBhtsULb33nuXr0uPn362d+/e+fhKzjzzzPwazpo16wvPF8CqWvaz7Nlnn83377zzzkr7jRkzptL60uf8K6+8stLHTp+ty34efhFljZqhrKGsUaKsUfM0xWeVpdrHdKV8WampW0mqeU/NsFNNYOqD/+67737p4373u9/NNYEl6WeTVEO8ulLNdjqmFR1ranadWiFstdVW+ap+qpWtiqo831KN/KOPPprXr0iqQUg1uanGOj1GaUk14qkp+JNPPhn1RcXnnGqj03GmWuZkRedt4MCBy12BLQ3uVlfPvdTKoeL7YVnpfZBqslM3iupK3S9KTT2rItV6l6SWD+l+avHxxBNPRG1JLQVSS5a+ffvm7hUlaSyKY445JrdqSK0VKkotECq2zEjv+fQ4qYsIQG2699578/dqajlV8TsjdeVKn+2l74xSS6/UOi59x68pyho1Q1mj6pQ1qEiwZ5V95StfyYOALSsFodSkLX3ppma9KdSUBrxZtj/5inTp0qXS/VLIX7bfXHXMnTs3Nthgg0ojg6dm8507d84XKlIfvHS8qXl8VY61qs839elLTfV/+9vf5t+RmuWn/s8Vf0cKj6kiNQXZ9BgVl3feeSc3KayOTz75JKZPn16+VPV5fdljpn7yqftF+uJNx5ieY8XnXFF6ThWl/uZp9PnSWAa19dy/7L2QVHw/LCs1f0/vha9+9auxww47xFlnnZX7/K2K0nmpinROKgbrJP3upDanWkzdHtIFpzTWxLJSl5N00WXZ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GBCDBw/OP5NGMR40aFAO9VUdER8AVpVgDwDwHxMmTMiBvSQF9KR///4xYsSIPFhe6k+fBrs7/fTTY5tttok//vGPeW77kquvvjoaN26ca+zTaPdpBP0bb7zROQag1gj2AAD/sc8++0RZWdkXno8f/OAHeVmZFi1axLBhw/ICAGuCUfEBAACgwAR7AAAAKDDBHgAAAApMsAcAAIACE+wBAACgwAR7AAAAKDDBHgAAAAqsToP9TTfdFDvuuGO0atUqL7169Yo//elP5dvnz58fAwcOjHbt2sX6668f/fr1ixkzZlR6jI8++igOOeSQWG+99aJ9+/Zx1llnxeLFiyvt89RTT8Uuu+wSzZs3j6222ipGjBixxp4jAAAArLXBftNNN41f/epXMXHixJgwYULst99+ccQRR8Rbb72Vt5955pnx0EMPxb333htPP/10TJs2LY488sjyn1+yZEkO9QsXLowXXnghbr/99hzazz///PJ9pkyZkvfZd999Y9KkSXHGGWfED3/4w3j00Ufr5DkDAABATWoSdeiwww6rdP8Xv/hFrsV/8cUXc+i/9dZbY+TIkTnwJ7fddlt07949b99jjz3isccei7fffjueeOKJ6NChQ+y8885xySWXxDnnnBMXXnhhNGvWLIYPHx6bb755XHnllfkx0s8/99xzcfXVV0efPn3q5HkDAADAWtfHPtW+33XXXTFv3rzcJD/V4i9atCh69+5dvk+3bt2iS5cuMX78+Hw/3e6www451JeksD5nzpzyWv+0T8XHKO1TeowVWbBgQX6MigsAAADUR3Ue7N94443cfz71f//xj38co0aNim233TamT5+ea9zbtGlTaf8U4tO2JN1WDPWl7aVtX7RPCuuff/75Co9p6NCh0bp16/Klc+fONfqcAQAAYK0J9ttss03u+/7SSy/FKaecEv3798/N6+vSkCFDYvbs2eXL1KlT6/R4AAAAoF72sU9SrXwaqT7p0aNHvPLKK3HttdfGd7/73Two3qxZsyrV2qdR8Tt27Jj/n25ffvnlSo9XGjW/4j7LjqSf7qdR+Nddd90VHlNqPZAWAAAAqO/qvMZ+WUuXLs193FPIb9q0aYwdO7Z82+TJk/P0dqkPfpJuU1P+mTNnlu/z+OOP59CemvOX9qn4GKV9So8BAAAARdakrpu8H3TQQXlAvE8//TSPgJ/mnE9T0aW+7QMGDIjBgwdH27Ztc1gfNGhQDuRpRPzkgAMOyAH++OOPj8svvzz3pz/33HNj4MCB5TXuqd/+DTfcEGeffXb84Ac/iHHjxsU999wTDz/8cF0+dQAAACh+sE817SeccEJ8/PHHOcjvuOOOOdR/85vfzNvTlHSNGzeOfv365Vr8NJr9jTfeWP7z66yzTowePTr3zU+Bv2XLlrmP/sUXX1y+T5rqLoX4M888MzfxT9Po/fa3vzXVHQAAAGuFOg32aZ76L9KiRYsYNmxYXlama9eu8cgjj3zh4+yzzz7x2muvVfs4AQAAoL6qd33sAQAAgKoT7AEAAKDABHsAAAAoMMEeAAAACkywBwAAgAIT7AEAAKDABHsAAAAoMMEeAAAACkywBwAAgAIT7AEAAKDABHsAAAAoMMEeAAAACkywBwAAgAIT7AEAAKDABHsAAAAoMMEeAAAACkywBwAAgAJrUtcHQP232c8fjvrkw18dUteHAAAAUG+osQcAAIACE+wBAACgwAR7AAAAKDDBHgAAAApMsAcAAIACE+wBAACgwAR7AAAAKDDBHgAAAApMsAcA+I9nnnkmDjvssOjUqVM0atQo7r///pWemx//+Md5n2uuuabS+k8++SSOPfbYaNWqVbRp0yYGDBgQc+fOdY4BqDWCPQDAf8ybNy922mmnGDZs2Beek1GjRsWLL76YLwAsK4X6t956Kx5//PEYPXp0vlhw8sknO8cA1JomtffQAADFctBBB+Xli/zjH/+IQYMGxaOPPhqHHHJIpW3vvPNOjBkzJl555ZXYdddd87rrr78+Dj744LjiiitWeCEAAFaXGnsAgCpaunRpHH/88XHWWWfFdtttt9z28ePH5+b3pVCf9O7dOxo3bhwvvfTSSh93wYIFMWfOnEoLAFSVYA8AUEWXXXZZNGnSJE4//fQVbp8+fXq0b9++0rq0f9u2bfO2lRk6dGi0bt26fOncubPXBIAqE+wBAKpg4sSJce2118aIESPyoHk1aciQITF79uzyZerUqV4TAKpMsAcAqIJnn302Zs6cGV26dMm18Gn529/+Fj/96U9js802y/t07Ngx71PR4sWL80j5advKNG/ePI+iX3EBgKoyeB4AQBWkvvWpv3xFffr0yetPPPHEfL9Xr14xa9asXLvfo0ePvG7cuHG5b37Pnj2dZwBqhWAPAPAfab75999/v/x8TJkyJSZNmpT7yKea+nbt2lU6V02bNs018dtss02+37179zjwwAPjpJNOiuHDh8eiRYvitNNOi6OPPtqI+ADUGk3xAQD+Y8KECfG1r30tL8ngwYPz/88///wqn6M777wzunXrFvvvv3+e5m6vvfaKm2++2TkGoNaosQcA+I999tknysrKqnw+Pvzww+XWpdr9kSNHOqcArDFq7AEAAKDABHsAAAAoMMEeAAAACkywBwAAgAIT7AEAAKDABHsAAAAoMMEeAAAACkywBwAAgAIT7AEAAKDABHsAAAAoMMEeAAAACkywBwAAgAIT7AEAAKDABHsAAAAoMMEeAAAACkywBwAAgAIT7AEAAKDABHsAAAAoMMEeAAAACkywBwAAgAIT7AEAAKDABHsAAAAoMMEeAAAACqxOg/3QoUNjt912iw022CDat28fffv2jcmTJ1faZ5999olGjRpVWn784x9X2uejjz6KQw45JNZbb738OGeddVYsXry40j5PPfVU7LLLLtG8efPYaqutYsSIEWvkOQIAAMBaG+yffvrpGDhwYLz44ovx+OOPx6JFi+KAAw6IefPmVdrvpJNOio8//rh8ufzyy8u3LVmyJIf6hQsXxgsvvBC33357Du3nn39++T5TpkzJ++y7774xadKkOOOMM+KHP/xhPProo2v0+QIAAEBNaxJ1aMyYMZXup0CeatwnTpwYe++9d/n6VBPfsWPHFT7GY489Fm+//XY88cQT0aFDh9h5553jkksuiXPOOScuvPDCaNasWQwfPjw233zzuPLKK/PPdO/ePZ577rm4+uqro0+fPrX8LAEAAKCB9LGfPXt2vm3btm2l9XfeeWdstNFGsf3228eQIUPis88+K982fvz42GGHHXKoL0lhfc6cOfHWW2+V79O7d+9Kj5n2SetXZMGCBfnnKy4AAABQH9VpjX1FS5cuzU3k99xzzxzgS4455pjo2rVrdOrUKV5//fVcE5/64d933315+/Tp0yuF+qR0P237on1SYP/8889j3XXXXa7v/0UXXVRrzxUAAADWumCf+tq/+eabuYl8RSeffHL5/1PN/CabbBL7779/fPDBB7HlllvWyrGkVgGDBw8uv58uAHTu3LlWfhcAAAAUvin+aaedFqNHj44nn3wyNt100y/ct2fPnvn2/fffz7ep7/2MGTMq7VO6X+qXv7J9WrVqtVxtfZJGzk/bKi4AAABQH9VpsC8rK8uhftSoUTFu3Lg8wN2XSaPaJ6nmPunVq1e88cYbMXPmzPJ90gj7KYxvu+225fuMHTu20uOkfdJ6AAAAKLLGdd38/g9/+EOMHDkyz2Wf+sKnJfV7T1Jz+zTCfRol/8MPP4wHH3wwTjjhhDxi/o477pj3SdPjpQB//PHHx5///Oc8hd25556bHzvVvCdp3vu//vWvcfbZZ8e7774bN954Y9xzzz1x5pln1uXTBwAAgGIH+5tuuimPhL/PPvvkGvjScvfdd+ftaaq6NI1dCu/dunWLn/70p9GvX7946KGHyh9jnXXWyc34022qgT/uuONy+L/44ovL90ktAR5++OFcS7/TTjvlae9++9vfmuoOAACAwmtS103xv0gasO7pp5/+0sdJo+Y/8sgjX7hPunjw2muvrfIxAgAAQH1WLwbPAwAAAKpHsAcAAIACE+wBAACgwAR7AAAAKDDBHgAAAApMsAcAAIACE+wBAACgwAR7AAAAKDDBHgAAAApMsAcAAIACE+wBAACgwAR7AID/eOaZZ+Kwww6LTp06RaNGjeL+++8vPzeLFi2Kc845J3bYYYdo2bJl3ueEE06IadOmVTp/n3zySRx77LHRqlWraNOmTQwYMCDmzp3rHANQawR7AID/mDdvXuy0004xbNiw5c7JZ599Fq+++mqcd955+fa+++6LyZMnx+GHH15pvxTq33rrrXj88cdj9OjR+WLBySef7BwDUGua1N5DAwAUy0EHHZSXFWndunUO6xXdcMMNsfvuu8dHH30UXbp0iXfeeSfGjBkTr7zySuy66655n+uvvz4OPvjguOKKK3ItPwDUNDX2AADVNHv27NxkPzW5T8aPH5//Xwr1Se/evaNx48bx0ksvrfRxFixYEHPmzKm0AEBVCfYAANUwf/783Of+e9/7Xu5Pn0yfPj3at29fab8mTZpE27Zt87aVGTp0aG4RUFo6d+7sNQGgygR7AIBVlAbS+853vhNlZWVx0003rfb5GzJkSK79Ly1Tp071mgBQZfrYAwBUI9T/7W9/i3HjxpXX1icdO3aMmTNnVtp/8eLFeaT8tG1lmjdvnhcAqA419gAAqxjq33vvvXjiiSeiXbt2lbb36tUrZs2aFRMnTixfl8L/0qVLo2fPns4zALVCjT0AwH+k+ebff//98vMxZcqUmDRpUu4jv8kmm8RRRx2Vp7pL09gtWbKkvN982t6sWbPo3r17HHjggXHSSSfF8OHD84WA0047LY4++mgj4gNQawR7AID/mDBhQuy7777l52Pw4MH5tn///nHhhRfGgw8+mO/vvPPOlc7Zk08+Gfvss0/+/5133pnD/P77759Hw+/Xr19cd911zjEAtUawBwD4jxTO04B4K/NF20pS7f3IkSOdUwDWGH3sAQAAoMAEewAAACgwwR4AAAAKTLAHAACAAhPsAQAAoMAEewAAACgwwR4AAAAKTLAHAACAAhPsAQAAoMAEewAAACgwwR4AAAAKTLAHAACAAhPsAQAAoMAEewAAACgwwR4AAAAKTLAHAACAAhPsAQAAoMAEewAAACgwwR4AAAAKTLAHAACAAhPsAQAAoMAEewAAACgwwR4AAAAKTLAHAACAAhPsAQAAoMAEewAAACgwwR4AAAAKTLAHAACAAhPsAQAAoMAEewAAACgwwR4AAAAKTLAHAACAAhPsAQAAoMAEewAAACgwwR4AAAAKTLAHAACAAhPsAQAAoMAEewAAACiwOg32Q4cOjd122y022GCDaN++ffTt2zcmT55caZ/58+fHwIEDo127drH++utHv379YsaMGZX2+eijj+KQQw6J9dZbLz/OWWedFYsXL660z1NPPRW77LJLNG/ePLbaaqsYMWLEGnmOAAAAsNYG+6effjqH9hdffDEef/zxWLRoURxwwAExb9688n3OPPPMeOihh+Lee+/N+0+bNi2OPPLI8u1LlizJoX7hwoXxwgsvxO23355D+/nnn1++z5QpU/I+++67b0yaNCnOOOOM+OEPfxiPPvroGn/OAAAAUJOaRB0aM2ZMpfspkKca94kTJ8bee+8ds2fPjltvvTVGjhwZ++23X97ntttui+7du+eLAXvssUc89thj8fbbb8cTTzwRHTp0iJ133jkuueSSOOecc+LCCy+MZs2axfDhw2PzzTePK6+8Mj9G+vnnnnsurr766ujTp89yx7VgwYK8lMyZM6fWzwUAAAAUvo99CvJJ27Zt820K+KkWv3fv3uX7dOvWLbp06RLjx4/P99PtDjvskEN9SQrrKYy/9dZb5ftUfIzSPqXHWFEXgdatW5cvnTt3roVnCwAAAGtRsF+6dGluIr/nnnvG9ttvn9dNnz4917i3adOm0r4pxKdtpX0qhvrS9tK2L9onhf/PP/98uWMZMmRIvshQWqZOnVrDzxYAAADWgqb4FaW+9m+++WZuIl/X0gB7aQEAAID6rl7U2J922mkxevToePLJJ2PTTTctX9+xY8c8KN6sWbMq7Z9GxU/bSvssO0p+6f6X7dOqVatYd911a+15AQDF8swzz8Rhhx0WnTp1ikaNGsX9999faXtZWVkeoHeTTTbJZYjU1e+9996rtM8nn3wSxx57bC5npFaHAwYMiLlz567hZwJAQ1KnwT59OaZQP2rUqBg3blwe4K6iHj16RNOmTWPs2LHl69J0eGl6u169euX76faNN96ImTNnlu+TRthPX6bbbrtt+T4VH6O0T+kxAACSNDPPTjvtFMOGDVvhCbn88svjuuuuywPzvvTSS9GyZcs8bk+anrckhfo0zk8qa6SKi3Sx4OSTT3aCAVg7m+Kn5vdpxPsHHnggz2Vf6hOfBqxLV8HTbbrKPXjw4DygXgrrgwYNyoE8jYifpOnxUoA//vjj85dteoxzzz03P3apOf2Pf/zjuOGGG+Lss8+OH/zgB/kiwj333BMPP/xwXT59AKCeOeigg/KysgqJa665JpczjjjiiLzujjvuyOP2pJr9o48+Ot555508688rr7wSu+66a97n+uuvj4MPPjiuuOKK3BIAANaqGvubbropD063zz775CZtpeXuu+8u3ydNSXfooYdGv3798hR4qVn9fffdV759nXXWyVfD020K/Mcdd1yccMIJcfHFF5fvk1oCpBCfrpynq/Bp2rvf/va3K5zqDgBgRaZMmZIrECrOtJMqIXr27Flptp7U/L4U6pO0f+PGjXMN/8qkaXbToL4VFwAoRI19uvL9ZVq0aJGbw62sSVzStWvXeOSRR77wcdLFg9dee61axwkAUGpZuKKZdirOxNO+fftK25s0aZJbHpb2WdlUuxdddJGTDEBxB88DAGjITLULwOoQ7AEAqqA0286KZtqpOBNPxQF9k8WLF+eR8kv7rEgaFyiNJVRxAYCqEuwBAKogjdmTwnnFmXZSX/jUd77ibD1pmt6JEyeW75MG7V26dGnuiw8Aa10fewCA+iTNN//+++9XGjBv0qRJuY98ly5d4owzzohLL700tt566xz0zzvvvDzSfd++ffP+3bt3jwMPPDBOOumkPCXeokWL8tS+acR8I+IDUFsEewCA/5gwYULsu+++5ecjTbmb9O/fP0aMGJGnzk1z3ad56VPN/F577ZWnt0uD/ZbceeedOczvv//+eTT8NLPPdddd5xwDUGsEewCACrPofNGsPY0aNcpT6lacVndZqXZ/5MiRzikAa4w+9gAAAFBggj0AAAAUmGAPAAAABSbYAwAAQIEJ9gAAAFBggj0AAAAUmGAPAAAABSbYAwAAQIEJ9gAAAFBggj0AAAAUmGAPAAAABSbYAwAAQIEJ9gAAAFBggj0AAAAUmGAPAAAABSbYAwAAQIEJ9gAAAFBggj0AAAAUmGAPAAAABSbYAwAAQIEJ9gAAANDQgv0WW2wR//rXv5ZbP2vWrLwNAGBNUjYBoCGrVrD/8MMPY8mSJcutX7BgQfzjH/+oieMCAKgyZRMAGrImq7Lzgw8+WP7/Rx99NFq3bl1+PwX9sWPHxmabbVazRwgAoGwCADUT7Pv27ZtvGzVqFP3796+0rWnTpjnUX3nllavykAAA1aZsAgCrGOyXLl2abzfffPN45ZVXYqONNnIOAYA6o2wCAKsY7EumTJni3AEA9YayCQANWbWCfZL606dl5syZ5VfLS373u9/VxLEBAFSZsgkADVW1gv1FF10UF198cey6666xySab5D73AAB1RdkEgIasWsF++PDhMWLEiDj++ONr/ogAAFaRsgkADVm15rFfuHBhfP3rX6/5owEAqAZlEwAasmoF+x/+8IcxcuTImj8aAIBqUDYBoCGrVlP8+fPnx8033xxPPPFE7LjjjnkO+4quuuqqmjo+AABlEwCo6WD/+uuvx84775z//+abb1baZiA9AGBNUzYBoCGrVrB/8skna/5IAACqSdkEgIasWn3sAQAAgALX2O+7775f2OR+3Lhxq3NMsNo2+/nD9eosfvirQ+r6EADWasomADRk1Qr2pf71JYsWLYpJkybl/vb9+/evqWMDAKgSZRMAGrJqBfurr756hesvvPDCmDt37uoeEwDAKlE2AaAhq9E+9scdd1z87ne/q8mHBACoNmUTABqCGg3248ePjxYtWtTkQwIAVJuyCQANQbWa4h955JGV7peVlcXHH38cEyZMiPPOO6+mjg0AoEqUTQBoyKoV7Fu3bl3pfuPGjWObbbaJiy++OA444ICaOjYAgCpRNgGgIatWsL/ttttq/kgAAKpJ2QRo6OrbdM/EGp3yerX62E+cODH+8Ic/5OW1116ruaMCAKinZZMlS5bkroebb755rLvuurHlllvGJZdckrsmlqT/n3/++bHJJpvkfXr37h3vvfderRwPAFSrxn7mzJlx9NFHx1NPPRVt2rTJ62bNmhX77rtv3HXXXbHxxhs7swDAGrMmyyaXXXZZ3HTTTXH77bfHdtttl8cYOvHEE3N3gNNPPz3vc/nll8d1112X90kXANKFgD59+sTbb79toGEA6keN/aBBg+LTTz+Nt956Kz755JO8vPnmmzFnzpzyLzQAgDVlTZZNXnjhhTjiiCPikEMOic022yyOOuqoPMbQyy+/XF5bf80118S5556b99txxx3jjjvuiGnTpsX9999fo8cCANUO9mPGjIkbb7wxunfvXr5u2223jWHDhsWf/vQnZxYAWKPWZNnk61//eowdOzb+8pe/5Pt//vOf47nnnouDDjoo358yZUpMnz49N78vSbX5PXv2zNPvrciCBQvyRYiKCwDUalP8pUuXRtOmTZdbn9albQAAa9KaLJv8/Oc/z8G7W7dusc466+Q+97/4xS/i2GOPzdtTqE86dOhQ6efS/dK2ZQ0dOjQuuuiiGj1OABqOatXY77fffvGTn/wkNykr+cc//hFnnnlm7L///jV5fAAA9apscs8998Sdd94ZI0eOjFdffTX3o7/iiivybXUNGTIkZs+eXb5MnTq1Ro8ZgLVbtWrsb7jhhjj88MNzv7LOnTvndekLaPvtt8+j0AIArElrsmxy1lln5Vr7NFhfssMOO8Tf/va3XOvev3//6NixY14/Y8aMPCp+Sbq/8847r/AxmzdvnhcAWGPBPn1hpivUTzzxRLz77rt5XerTVrEvGQDAmrImyyafffZZNG5cudFjapJfavKfRsFP4T71wy8F+dR0/6WXXopTTjmlxo8HAFapKf64cePyQDTpy6lRo0bxzW9+M49Cm5bddtstT/ny7LPPOqsAwBpRF2WTww47LPepf/jhh+PDDz+MUaNGxVVXXRXf+ta38vZ0HGeccUZceuml8eCDD8Ybb7wRJ5xwQnTq1Cn69u1bo8cCAKsc7NPULSeddFK0atVquW1ptNcf/ehH+Yutqp555pn85Zi+6NKX4LJTwHz/+9/P6ysuBx54YKV90nQ2abCadExp3toBAwbE3LlzK+3z+uuvxze+8Y08b2y6op/mlgUAiq+myyZVcf311+cp7k499dTcKuBnP/tZ/j2XXHJJ+T5nn312vrhw8skn5wsMqWySRu5PZREAqNNgn6ZzWTZYV5TmcJ04cWKVH2/evHmx00475aloVib9vo8//rh8+Z//+Z9K21OoT3PWPv744zF69Oh8sSB9iZakK/jpuLp27ZqP7de//nVceOGFcfPNN1f5OAGA+qmmyyZVscEGG+QLCqlf/eeffx4ffPBBrp1v1qxZ+T6pMuLiiy/Oo+DPnz8/dxH46le/WqPHAQDV6mOfBn1Z0VQy5Q/WpEn885//rPLjpfleS3O+rkwaSKY0CM2y3nnnnXz1+5VXXoldd921/Cr6wQcfnEenTS0B0qi1CxcujN/97nf5Czc1yZs0aVK+el/xAgAAUDw1XTYBgLW+xv4rX/lKvPnmmyvdnpq8Vxz9tSY89dRT0b59+9hmm23ygDP/+te/yreNHz8+N78vhfokDZKTBrRJA9SU9tl7770rXUXv06dPTJ48Of7973+v8HcuWLAg1/RXXACA+qcuyiYAUOhgn2rCzzvvvNykbFmpKdoFF1wQhx56aI0dXGpad8cdd+RRZS+77LJ4+umncw3/kiVL8vbUvC2F/mWvzLdt2zZvK+3ToUOHSvuU7pf2WVaarib1yystpWlzAID6ZU2XTQCg8E3xzz333LjvvvtyH7HTTjst16InaVqZ1E8+Be7//u//rrGDK80PW5ojdscdd4wtt9wy1+Lvv//+UVuGDBkSgwcPLr+fauyFewCof9Z02QQACh/sU033Cy+8kJvEp/BbVlZWPkBMat6evkCXrR2vSVtssUVstNFG8f777+dgn/rez5w5s9I+ixcvziPll/rlp9vU/66i0v2V9d1P/frTAgDUb3VdNgGAwgX7JI0u/8gjj+T+6Slgpy/QrbfeOjbccMOobX//+99zH/tSX7levXrFrFmz8mi3PXr0KJ/PdunSpdGzZ8/yfdKV+kWLFpUPrpNG0E9X9NfEMQMAtasuyyYAUMhgX5K+LNO8rKsjzemavoBLpkyZkkesT33k03LRRRdFv379cs16mkomzQm71VZb5SvwSZo7NvXDT/PXDh8+PIf31AwvNeFPI+InxxxzTH6cNL/9OeeckwfYufbaa+Pqq69erWMHAOqXmiibAMBaP3heTZswYUJ87Wtfy0uS+rWn/59//vmxzjrr5JFsDz/88NxvLgXzVCv/7LPPVmomn6az69atW26anwbQ2WuvvSrNUZ8Gv3vsscfyRYP08z/96U/z45vqDgAAgAZdY18T9tlnn/K+cCvy6KOPfuljpJr9kSNHfuE+adC9dEEAAAAA1jZ1WmMPAAAArB7BHgAAAApMsAcAAIACE+wBAACgwAR7AAAAKDDBHgAAAApMsAcAAIACE+wBAACgwAR7AAAAKDDBHgAAAApMsAcAAIACE+wBAACgwAR7AAAAKDDBHgAAAApMsAcAAIACE+wBAACgwAR7AAAAKDDBHgAAAApMsAcAAIACE+wBAACgwAR7AAAAKDDBHgAAAApMsAcAAIACE+wBAACgwAR7AAAAKDDBHgAAAApMsAcAAIACE+wBAACgwAR7AAAAKDDBHgAAAApMsAcAAIACE+wBAACgwAR7AAAAKDDBHgAAAApMsAcAAIACE+wBAACgwAR7AIBV9I9//COOO+64aNeuXay77rqxww47xIQJE8q3l5WVxfnnnx+bbLJJ3t67d+947733nGcAaoVgDwCwCv7973/HnnvuGU2bNo0//elP8fbbb8eVV14ZG264Yfk+l19+eVx33XUxfPjweOmll6Jly5bRp0+fmD9/vnMNQI1rUvMPCQCw9rrsssuic+fOcdttt5Wv23zzzSvV1l9zzTVx7rnnxhFHHJHX3XHHHdGhQ4e4//774+ijj66T4wZg7aXGHgBgFTz44IOx6667xre//e1o3759fO1rX4tbbrmlfPuUKVNi+vTpufl9SevWraNnz54xfvz4FT7mggULYs6cOZUWAKgqwR4AYBX89a9/jZtuuim23nrrePTRR+OUU06J008/PW6//fa8PYX6JNXQV5Tul7Yta+jQoTn8l5bUIgAAqkqwBwBYBUuXLo1ddtklfvnLX+ba+pNPPjlOOumk3J++uoYMGRKzZ88uX6ZOneo1AaDKBHsAgFWQRrrfdtttK63r3r17fPTRR/n/HTt2zLczZsyotE+6X9q2rObNm0erVq0qLQBQVYI9AMAqSCPiT548udK6v/zlL9G1a9fygfRSgB87dmz59tRnPo2O36tXL+cagBpnVHwAgFVw5plnxte//vXcFP873/lOvPzyy3HzzTfnJWnUqFGcccYZcemll+Z++Cnon3feedGpU6fo27evcw1AjRPsAQBWwW677RajRo3K/eIvvvjiHNzT9HbHHnts+T5nn312zJs3L/e/nzVrVuy1114xZsyYaNGihXMNQI0T7AEAVtGhhx6al5VJtfYp9KcFAGqbPvYAAABQYII9AAAAFJhgDwAAAAUm2AMAAECBCfYAAABQYII9AAAAFJhgDwAAAAUm2AMAAECBCfYAAABQYII9AAAAFJhgDwAAAAUm2AMAAECBCfYAAABQYHUa7J955pk47LDDolOnTtGoUaO4//77K20vKyuL888/PzbZZJNYd911o3fv3vHee+9V2ueTTz6JY489Nlq1ahVt2rSJAQMGxNy5cyvt8/rrr8c3vvGNaNGiRXTu3Dkuv/zyNfL8AAAAYK0O9vPmzYuddtophg0btsLtKYBfd911MXz48HjppZeiZcuW0adPn5g/f375PinUv/XWW/H444/H6NGj88WCk08+uXz7nDlz4oADDoiuXbvGxIkT49e//nVceOGFcfPNN6+R5wgAAAC1qUnUoYMOOigvK5Jq66+55po499xz44gjjsjr7rjjjujQoUOu2T/66KPjnXfeiTFjxsQrr7wSu+66a97n+uuvj4MPPjiuuOKK3BLgzjvvjIULF8bvfve7aNasWWy33XYxadKkuOqqqypdAAAAAIAiqrd97KdMmRLTp0/Pze9LWrduHT179ozx48fn++k2Nb8vhfok7d+4ceNcw1/aZ++9986hviTV+k+ePDn+/e9/r/B3L1iwINf0V1wAAACgPqq3wT6F+iTV0FeU7pe2pdv27dtX2t6kSZNo27ZtpX1W9BgVf8eyhg4dmi8ilJbULx8AAADqo3ob7OvSkCFDYvbs2eXL1KlT6/qQAAAAoFjBvmPHjvl2xowZldan+6Vt6XbmzJmVti9evDiPlF9xnxU9RsXfsazmzZvnUfYrLgAAAFAf1dtgv/nmm+fgPXbs2PJ1qa976jvfq1evfD/dzpo1K492XzJu3LhYunRp7otf2ieNlL9o0aLyfdII+ttss01suOGGa/Q5AQAAwFoV7NN882mE+rSUBsxL///oo4/yvPZnnHFGXHrppfHggw/GG2+8ESeccEIe6b5v3755/+7du8eBBx4YJ510Urz88svx/PPPx2mnnZZHzE/7Jcccc0weOC/Nb5+mxbv77rvj2muvjcGDB9flUwcAAIDiT3c3YcKE2Hfffcvvl8J2//79Y8SIEXH22Wfnue7TtHSpZn6v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Id9funRpdO7cOQYNGhQ///nPo75L8xCnWsT0gbP33nvX9eGsVRYsWBBnnXVW3HXXXTFnzpzYdddd4+qrr87vl6L93X344Yex+eabx2uvvZbnq6bm/uZmz54dG2+8cYwcOTKOOuqovM+7774b3bt3j/Hjx8cee+zhdMNaquhlCBpWmZeao/y96tTYU6sWLlwYEydOjN69e///b7rGjfP9VCAvghQqkrZt29b1oax1zj777PjjH/8Yt99+e66J2WqrrXJNzCeffFLXh0Y9+ptLnyGpFr/i50i3bt2iS5cuhfkcARpmGQKoHuXvVSfYU6v+93//N5YsWRIdOnSotD7dnz59er0/+6lm4Iwzzog999wztt9++6jv7rzzztz/uLQ8++yzUZ+b2d10003x61//Og466KDYdttt45Zbbol11103br311ro+vLXGsu+Jiy66qNL9jz76KOr731z6rGjWrFm0adOmkJ8jQMMsQwANo/xdXzSp6wOA+iz1+33zzTfjueeeiyI4/PDDc7PFkq985StRX33wwQe5FjZ9aJc0bdo0dt9993jnnXfq9NjWJsu+J9KFk2OPPbb8fhqYqD4p2t8cAFCzlAWqR7CnVm200UaxzjrrLDd6dbrfsWPHen32TzvttBg9enQemXXTTTeNIkijiqcFivieWNnfXPqsSE1yZ82aVanWvgifI0DDLEMADaf8XV9oik+tSs1ne/ToEWPHjq3UvCbd79WrV708+2VlZflDJQ3UMm7cuDwgGjVvyy23zO+P559/vnxdqsF/5ZVXcrN8Go4v+5tLnyGpNUfFz5E0HV7qRlBfP0eAhlmGAKpH+Xv1qbEvkLlz58b7779ffn/KlCl5zuw0wFQaRKq+StPU9O/fP494nppZX3PNNbl/9Yknnhj1tflPGn37gQceyDWdpX58rVu3zs2YqRktW7aMU045JY+KX3oPX3755fHZZ5/FgAEDCvN3lwb6SwEzTb+WlOZfT7VJapRq5m8u3ab3RPosSee9VatWeUTsVLA3Ij6s3YpWhqBhl3mpPuXvGlBGYTz55JNl6SVbdunfv39ZfXf99deXdenSpaxZs2Zlu+++e9mLL75YVl+t6Byn5bbbbqvrQ1vrfP7552WDBg0q22ijjcqaN29etueee5a9/PLLZUX6u0vvixVtv+CCC+r60AujKn9z6b1y6qmnlm244YZl6623Xtm3vvWtso8//rhOjxtYM4pUhqBmFLnMS/Uof68+89gDAABAgeljDwAAAAUm2AMAAECBCfYAAABQYII9AAAAFJhgDwAAAAUm2AMAAECBCfYAAABQYII9AAAAFJhgDyxnxIgR0aZNm9U+M40aNYr777/fGQYAvpCyB6wewR7WUt///vejb9++dX0YAEADoewBdUewBwAAgAIT7KEBuuqqq2KHHXaIli1bRufOnePUU0+NuXPnLrdfaka/9dZbR4sWLaJPnz4xderUStsfeOCB2GWXXfL2LbbYIi666KJYvHjxCn/nwoUL47TTTotNNtkk79+1a9cYOnRorT1HAKD+UPaA2iXYQwPUuHHjuO666+Ktt96K22+/PcaNGxdnn312pX0+++yz+MUvfhF33HFHPP/88zFr1qw4+uijy7c/++yzccIJJ8RPfvKTePvtt+M3v/lN7h+XfmZF0u978MEH45577onJkyfHnXfeGZtttlmtP1cAoO4pe0AtKwPWSv379y874ogjqrTvvffeW9auXbvy+7fddltZ+nh48cUXy9e98847ed1LL72U7++///5lv/zlLys9zu9///uyTTbZpPx+2n/UqFH5/4MGDSrbb7/9ypYuXbrazw0AqH+UPaDuqLGHBuiJJ56I/fffP77yla/EBhtsEMcff3z861//yrX0JU2aNInddtut/H63bt3ySPnvvPNOvv/nP/85Lr744lh//fXLl5NOOik+/vjjSo9TcUCdSZMmxTbbbBOnn356PPbYY2vo2QIAdU3ZA2qXYA8NzIcffhiHHnpo7LjjjvHHP/4xJk6cGMOGDSvvB19VqU9+6lOfwnppeeONN+K9997LfeiXlfriT5kyJS655JL4/PPP4zvf+U4cddRRNfrcAID6R9kDal+TNfA7gHokBfmlS5fGlVdemfu7Janf+7LSIHgTJkyI3XffPd9P/eJTP/vu3buXB/W0bquttqry727VqlV897vfzUsK9QceeGB88skn0bZt2xp7fgBA/aLsAbVPsIe12OzZs3NNekUbbbRRLFq0KK6//vo47LDD8sB4w4cPX+5nmzZtGoMGDcqD3qVm+WlE+z322KM86J9//vm55r9Lly45pKeLBKl5/ptvvhmXXnrpCkfDTSPif+1rX8v73nvvvdGxY8fcvB8AWDsoe0Dd0BQf1mJPPfVUDtIVl9///vc5ZF922WWx/fbb59HpVzTt3HrrrRfnnHNOHHPMMbHnnnvmPvR33313+fY0/d3o0aNzX/nUFz+F/quvvjpPY7ciqS//5ZdfHrvuumvePzXLe+SRR8pbDQAAxafsAXWjURpBr45+NwAAALCaVJUBAABAgQn2AAAAUGCCPQAAABSYYA8AAAAFJtgDAABAgQn2AAAAUGCCPQAAABSYYA8AAAAFJtgDAABAgQn2AAAAUGCCPQAAAERx/X9Axhz76H+BFQAAAABJRU5ErkJggg=="/>
 </div>
 </div>
 </div>
@@ -8682,7 +8780,7 @@ Name: count, dtype: int64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Check for missing values in the train dataset</span>
@@ -8717,8 +8815,8 @@ Test Dataset - Missing Values:
 text     1
 label    0
 dtype: int64
-Train Dataset Size: (6000, 2)
-Test Dataset Size: (1996, 2)
+Train Dataset Size: (7596, 2)
+Test Dataset Size: (400, 2)
 </pre>
 </div>
 </div>
@@ -8729,7 +8827,7 @@ Test Dataset Size: (1996, 2)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">nepali_sentiment</span><span class="o">.</span><span class="n">reset_format</span><span class="p">()</span>
@@ -8754,7 +8852,7 @@ Test Dataset Size: (1996, 2)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Training set labels before</span>
@@ -8771,7 +8869,7 @@ Test Dataset Size: (1996, 2)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Counter({'1': 2378, '0': 2377, '2': 1236, '-': 5, '20': 1, '11': 1, 'o': 1, '--': 1})
+<pre>Counter({'1': 3107, '0': 2828, '2': 1650, '-': 6, 'o': 2, '11': 1, '--': 1, '20': 1})
 </pre>
 </div>
 </div>
@@ -8782,7 +8880,7 @@ Test Dataset Size: (1996, 2)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Test set labels before</span>
@@ -8799,18 +8897,18 @@ Test Dataset Size: (1996, 2)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Counter({'1': 888, '0': 610, '2': 496, 'o': 1, '-': 1})
+<pre>Counter({'0': 159, '1': 159, '2': 82})
 </pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6b3d83bd-65b0-439f-99bd-4c6c2c06a4b3">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6b3d83bd-65b0-439f-99bd-4c6c2c06a4b3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Filter the dataset</span>
@@ -8820,12 +8918,30 @@ Test Dataset Size: (1996, 2)
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Filter:   0%|          | 0/7596 [00:00&lt;?, ? examples/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Filter:   0%|          | 0/400 [00:00&lt;?, ? examples/s]</pre>
+</div>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d151875a-2cc5-4d04-a8a0-61dc07ff27eb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">nepali_sentiment</span>
@@ -8839,28 +8955,28 @@ Test Dataset Size: (1996, 2)
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>DatasetDict({
     train: Dataset({
         features: ['text', 'label'],
-        num_rows: 5991
+        num_rows: 7585
     })
     test: Dataset({
         features: ['text', 'label'],
-        num_rows: 1994
+        num_rows: 400
     })
 })</pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ae184d01-afc1-4b99-beef-74b35d132538">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ae184d01-afc1-4b99-beef-74b35d132538">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Convert labels to integers</span>
@@ -8870,12 +8986,30 @@ Test Dataset Size: (1996, 2)
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Map:   0%|          | 0/7585 [00:00&lt;?, ? examples/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Map:   0%|          | 0/400 [00:00&lt;?, ? examples/s]</pre>
+</div>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4193d986-9331-4334-9d1e-95b19df5765a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Training set labels after</span>
@@ -8892,7 +9026,7 @@ Test Dataset Size: (1996, 2)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Counter({1: 2378, 0: 2377, 2: 1236})
+<pre>Counter({1: 3107, 0: 2828, 2: 1650})
 </pre>
 </div>
 </div>
@@ -8903,7 +9037,7 @@ Test Dataset Size: (1996, 2)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Test set labels after</span>
@@ -8920,7 +9054,7 @@ Test Dataset Size: (1996, 2)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Counter({1: 888, 0: 610, 2: 496})
+<pre>Counter({0: 159, 1: 159, 2: 82})
 </pre>
 </div>
 </div>
@@ -8931,7 +9065,7 @@ Test Dataset Size: (1996, 2)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Define a filtering function</span>
@@ -8949,17 +9083,35 @@ Test Dataset Size: (1996, 2)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=faca0b8d-204e-4ae1-9371-8d5d6d1a6fec">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=faca0b8d-204e-4ae1-9371-8d5d6d1a6fec">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Remove rows where "text" column is None or empty string</span>
 <span class="n">nepali_sentiment</span> <span class="o">=</span> <span class="n">nepali_sentiment</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">filter_nans</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Filter:   0%|          | 0/7585 [00:00&lt;?, ? examples/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Filter:   0%|          | 0/400 [00:00&lt;?, ? examples/s]</pre>
 </div>
 </div>
 </div>
@@ -8980,7 +9132,7 @@ Test Dataset Size: (1996, 2)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">"Shushant/nepaliBERT"</span><span class="p">)</span>
@@ -9005,17 +9157,29 @@ Test Dataset Size: (1996, 2)
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Map:   0%|          | 0/7584 [00:00&lt;?, ? examples/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Map:   0%|          | 0/399 [00:00&lt;?, ? examples/s]</pre>
+</div>
+</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>DatasetDict({
     train: Dataset({
         features: ['text', 'label', 'input_ids', 'token_type_ids', 'attention_mask'],
-        num_rows: 5990
+        num_rows: 7584
     })
     test: Dataset({
         features: ['text', 'label', 'input_ids', 'token_type_ids', 'attention_mask'],
-        num_rows: 1993
+        num_rows: 399
     })
 })</pre>
 </div>
@@ -9027,7 +9191,7 @@ Test Dataset Size: (1996, 2)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">nepali_sentiment</span><span class="p">[</span><span class="s1">'train'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -9041,10 +9205,10 @@ Test Dataset Size: (1996, 2)
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>{'text': 'बजार ले जसरी ट्रेन्ड चेन्ज गर्यो यो हेर्दा तत्काल प्रोफिट बूकिङ आउने सम्भावना रहेन ! भोलि अर्को ट्रेन्ड समात्न सक्ने अबस्था पनि दरो छ',
- 'label': 2}</pre>
+<pre>{'text': 'यो हाम्रो समाजको जातीय बिभेदका कारण  धेरै मन दुखेर आउँछ । हामी मान्छेहरु किन पसुहरु भन्दा पनि असिक्छित भएका हौ । हामी कस्तो समाज मा बसेका छौ । यो समाज कहिले सिक्छित र सुधृन्छ होला।मेन कुरा त कानुन, शिक्षा र बिकास को कमिले होला । अब रबि सर यो जातीय बिभेदको बारेमा दरो खरो तरिकाले गाउँ टोल सहर सबै तिर तपाइको टिमले रिपोर्ट गरेर तपाइको आवज बाट असिक्छित मान्छे हरुलाइ सिक्छित बनाउने काम गर्नु होला',
+ 'label': 0}</pre>
 </div>
 </div>
 </div>
@@ -9054,7 +9218,7 @@ Test Dataset Size: (1996, 2)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">nepali_sentiment_encoded</span><span class="p">[</span><span class="s1">'train'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -9068,56 +9232,204 @@ Test Dataset Size: (1996, 2)
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>{'text': 'बजार ले जसरी ट्रेन्ड चेन्ज गर्यो यो हेर्दा तत्काल प्रोफिट बूकिङ आउने सम्भावना रहेन ! भोलि अर्को ट्रेन्ड समात्न सक्ने अबस्था पनि दरो छ',
- 'label': 2,
+<pre>{'text': 'यो हाम्रो समाजको जातीय बिभेदका कारण  धेरै मन दुखेर आउँछ । हामी मान्छेहरु किन पसुहरु भन्दा पनि असिक्छित भएका हौ । हामी कस्तो समाज मा बसेका छौ । यो समाज कहिले सिक्छित र सुधृन्छ होला।मेन कुरा त कानुन, शिक्षा र बिकास को कमिले होला । अब रबि सर यो जातीय बिभेदको बारेमा दरो खरो तरिकाले गाउँ टोल सहर सबै तिर तपाइको टिमले रिपोर्ट गरेर तपाइको आवज बाट असिक्छित मान्छे हरुलाइ सिक्छित बनाउने काम गर्नु होला',
+ 'label': 0,
  'input_ids': [2,
-  2435,
-  396,
-  5232,
-  377,
-  9474,
-  1051,
-  372,
-  1030,
-  1037,
-  1692,
-  1700,
   1786,
-  2699,
+  1870,
+  1857,
+  5608,
+  5932,
+  1808,
+  1048,
+  1021,
+  1677,
+  2064,
+  4555,
+  2229,
+  384,
+  4006,
+  16192,
+  428,
+  2166,
+  2046,
+  1054,
+  1695,
+  2466,
+  4160,
+  1695,
+  8198,
   1743,
-  382,
-  4058,
-  1024,
-  19208,
-  22495,
-  26016,
-  4677,
-  3724,
-  1733,
-  8600,
-  5983,
-  5,
-  4852,
-  3102,
-  1672,
-  377,
-  9474,
-  1051,
-  1903,
-  6951,
-  2335,
-  1030,
-  2227,
-  1010,
-  1718,
   1724,
+  20754,
+  1034,
+  1780,
+  1025,
+  1955,
+  6997,
+  428,
+  2166,
+  2204,
+  3090,
+  2286,
+  1723,
+  28169,
+  6030,
+  428,
+  1786,
+  2286,
+  4380,
+  1024,
+  5991,
+  1780,
+  1025,
+  394,
+  4052,
+  1030,
+  1054,
+  2890,
+  428,
+  2229,
+  7533,
+  382,
+  2453,
+  1030,
+  16,
+  2037,
+  1034,
+  2592,
+  394,
+  7017,
+  1805,
+  4988,
+  1024,
+  2890,
+  428,
+  2227,
+  15072,
+  1807,
+  1786,
+  5932,
+  1808,
+  1048,
+  7639,
+  29937,
   3077,
   1014,
-  373,
+  22491,
+  4492,
+  1024,
+  5538,
+  3397,
+  4304,
+  5133,
+  4880,
+  17620,
+  3560,
+  1024,
+  28274,
+  1007,
+  1012,
+  1692,
+  1007,
+  17620,
+  2162,
+  1037,
+  3127,
+  20754,
+  1034,
+  1780,
+  1025,
+  2046,
+  1054,
+  2699,
+  2696,
+  5991,
+  1780,
+  1025,
+  2621,
+  1875,
+  1692,
+  1030,
+  2890,
   4],
  'token_type_ids': [0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
   0,
   0,
   0,
@@ -9206,6 +9518,80 @@ Test Dataset Size: (1996, 2)
   1,
   1,
   1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
   1]}</pre>
 </div>
 </div>
@@ -9235,7 +9621,7 @@ Attention mask is how we ignore attention scores for padding tokens</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">data_collator</span> <span class="o">=</span> <span class="n">DataCollatorWithPadding</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">)</span>
@@ -9260,7 +9646,7 @@ Attention mask is how we ignore attention scores for padding tokens</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cuda"</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">"cpu"</span><span class="p">)</span>
@@ -9292,7 +9678,7 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">nepali_bert</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">id2label</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">'Negative'</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">'Neutral'</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">'Positive'</span><span class="p">}</span>
@@ -9307,7 +9693,7 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">nepali_bert</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">id2label</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -9321,7 +9707,7 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>'Negative'</pre>
 </div>
@@ -9333,7 +9719,7 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_metrics</span><span class="p">(</span><span class="n">preds</span><span class="p">):</span>
@@ -9352,11 +9738,11 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">epochs</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">10</span>
 
 <span class="n">training_args</span> <span class="o">=</span> <span class="n">TrainingArguments</span><span class="p">(</span>
     <span class="n">output_dir</span><span class="o">=</span><span class="s2">"./bert-finetuned-nepali-sentiment"</span><span class="p">,</span>
@@ -9387,8 +9773,7 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Define the trainer</span>
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span>
     <span class="n">model</span><span class="o">=</span><span class="n">nepali_bert</span><span class="p">,</span>
     <span class="n">args</span><span class="o">=</span><span class="n">training_args</span><span class="p">,</span>
     <span class="n">train_dataset</span><span class="o">=</span><span class="n">nepali_sentiment_encoded</span><span class="p">[</span><span class="s1">'train'</span><span class="p">],</span>
@@ -9430,12 +9815,12 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>The following columns in the Training set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
 ***** Running training *****
-  Num examples = 5,990
-  Num Epochs = 15
+  Num examples = 7,584
+  Num Epochs = 10
   Instantaneous batch size per device = 8
   Total train batch size (w. parallel, distributed &amp; accumulation) = 8
   Gradient Accumulation steps = 1
-  Total optimization steps = 11,235
+  Total optimization steps = 9,480
   Number of trainable parameters = 109,484,547
 </pre>
 </div>
@@ -9444,8 +9829,8 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <div>
-<progress max="11235" style="width:300px; height:20px; vertical-align: middle;" value="11235"></progress>
-      [11235/11235 18:31, Epoch 15/15]
+<progress max="9480" style="width:300px; height:20px; vertical-align: middle;" value="9480"></progress>
+      [9480/9480 15:28, Epoch 10/10]
     </div>
 <table border="1" class="dataframe">
 <thead>
@@ -9462,138 +9847,93 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 <tbody>
 <tr>
 <td>1</td>
-<td>0.853200</td>
-<td>0.819739</td>
-<td>0.662318</td>
-<td>0.655422</td>
-<td>0.642551</td>
-<td>0.630977</td>
+<td>0.744100</td>
+<td>0.608469</td>
+<td>0.774436</td>
+<td>0.765191</td>
+<td>0.724384</td>
+<td>0.733518</td>
 </tr>
 <tr>
 <td>2</td>
-<td>1.099800</td>
-<td>0.870244</td>
-<td>0.680381</td>
-<td>0.658863</td>
-<td>0.642302</td>
-<td>0.633328</td>
+<td>0.433000</td>
+<td>0.749868</td>
+<td>0.759398</td>
+<td>0.737184</td>
+<td>0.739047</td>
+<td>0.736346</td>
 </tr>
 <tr>
 <td>3</td>
-<td>0.711600</td>
-<td>1.013068</td>
-<td>0.670848</td>
-<td>0.646319</td>
-<td>0.636090</td>
-<td>0.627468</td>
+<td>0.291400</td>
+<td>0.989803</td>
+<td>0.751880</td>
+<td>0.728450</td>
+<td>0.734700</td>
+<td>0.729454</td>
 </tr>
 <tr>
 <td>4</td>
-<td>0.080800</td>
-<td>1.142671</td>
-<td>0.681887</td>
-<td>0.653778</td>
-<td>0.652303</td>
-<td>0.649713</td>
+<td>0.014700</td>
+<td>1.013509</td>
+<td>0.754386</td>
+<td>0.730109</td>
+<td>0.727099</td>
+<td>0.728374</td>
 </tr>
 <tr>
 <td>5</td>
-<td>0.046000</td>
-<td>1.109295</td>
-<td>0.654290</td>
-<td>0.634403</td>
-<td>0.632177</td>
-<td>0.625907</td>
+<td>0.151100</td>
+<td>1.173857</td>
+<td>0.741855</td>
+<td>0.718616</td>
+<td>0.724385</td>
+<td>0.720616</td>
 </tr>
 <tr>
 <td>6</td>
-<td>0.005700</td>
-<td>1.247379</td>
-<td>0.669343</td>
-<td>0.645343</td>
-<td>0.647111</td>
-<td>0.645226</td>
+<td>0.006400</td>
+<td>1.370465</td>
+<td>0.736842</td>
+<td>0.717074</td>
+<td>0.729969</td>
+<td>0.720161</td>
 </tr>
 <tr>
 <td>7</td>
-<td>0.140000</td>
-<td>1.272425</td>
-<td>0.655294</td>
-<td>0.630209</td>
-<td>0.631372</td>
-<td>0.628961</td>
+<td>0.008100</td>
+<td>1.399834</td>
+<td>0.731830</td>
+<td>0.711651</td>
+<td>0.721813</td>
+<td>0.713777</td>
 </tr>
 <tr>
 <td>8</td>
-<td>0.195700</td>
-<td>1.490063</td>
-<td>0.677873</td>
-<td>0.648482</td>
-<td>0.644158</td>
-<td>0.643547</td>
+<td>0.096800</td>
+<td>1.420488</td>
+<td>0.731830</td>
+<td>0.710459</td>
+<td>0.719937</td>
+<td>0.713448</td>
 </tr>
 <tr>
 <td>9</td>
-<td>0.040300</td>
-<td>1.470944</td>
-<td>0.668339</td>
-<td>0.645401</td>
-<td>0.647564</td>
-<td>0.645289</td>
+<td>0.288100</td>
+<td>1.534534</td>
+<td>0.739348</td>
+<td>0.717806</td>
+<td>0.726226</td>
+<td>0.720818</td>
 </tr>
 <tr>
 <td>10</td>
-<td>0.003200</td>
-<td>1.485641</td>
-<td>0.653287</td>
-<td>0.632734</td>
-<td>0.634549</td>
-<td>0.632122</td>
-</tr>
-<tr>
-<td>11</td>
-<td>0.342100</td>
-<td>1.707708</td>
-<td>0.659308</td>
-<td>0.632417</td>
-<td>0.632629</td>
-<td>0.629579</td>
-</tr>
-<tr>
-<td>12</td>
-<td>0.086600</td>
-<td>1.713582</td>
-<td>0.664325</td>
-<td>0.644876</td>
-<td>0.636391</td>
-<td>0.630516</td>
-</tr>
-<tr>
-<td>13</td>
-<td>0.001100</td>
-<td>1.641039</td>
-<td>0.661315</td>
-<td>0.635800</td>
-<td>0.634303</td>
-<td>0.631459</td>
-</tr>
-<tr>
-<td>14</td>
-<td>0.269000</td>
-<td>1.743343</td>
-<td>0.662318</td>
-<td>0.636702</td>
-<td>0.636705</td>
-<td>0.635034</td>
-</tr>
-<tr>
-<td>15</td>
-<td>0.000700</td>
-<td>1.793006</td>
-<td>0.665830</td>
-<td>0.640834</td>
-<td>0.639710</td>
-<td>0.637272</td>
+<td>0.000400</td>
+<td>1.649189</td>
+<td>0.739348</td>
+<td>0.716556</td>
+<td>0.722302</td>
+<td>0.718804</td>
 </tr>
 </tbody>
 </table><p>
@@ -9605,163 +9945,113 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 <pre>The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
 
 ***** Running Evaluation *****
-  Num examples = 1993
+  Num examples = 399
   Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-749
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-749/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-749/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-749/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-749/special_tokens_map.json
+Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-948
+Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-948/config.json
+Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-948/model.safetensors
+tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-948/tokenizer_config.json
+Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-948/special_tokens_map.json
 The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
 
 ***** Running Evaluation *****
-  Num examples = 1993
+  Num examples = 399
   Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-1498
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-1498/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-1498/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-1498/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-1498/special_tokens_map.json
+Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-1896
+Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-1896/config.json
+Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-1896/model.safetensors
+tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-1896/tokenizer_config.json
+Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-1896/special_tokens_map.json
 The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
 
 ***** Running Evaluation *****
-  Num examples = 1993
+  Num examples = 399
   Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-2247
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-2247/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-2247/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-2247/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-2247/special_tokens_map.json
+Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-2844
+Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-2844/config.json
+Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-2844/model.safetensors
+tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-2844/tokenizer_config.json
+Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-2844/special_tokens_map.json
 The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
 
 ***** Running Evaluation *****
-  Num examples = 1993
+  Num examples = 399
   Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-2996
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-2996/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-2996/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-2996/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-2996/special_tokens_map.json
+Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-3792
+Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-3792/config.json
+Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-3792/model.safetensors
+tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-3792/tokenizer_config.json
+Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-3792/special_tokens_map.json
 The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
 
 ***** Running Evaluation *****
-  Num examples = 1993
+  Num examples = 399
   Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-3745
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-3745/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-3745/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-3745/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-3745/special_tokens_map.json
+Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-4740
+Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-4740/config.json
+Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-4740/model.safetensors
+tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-4740/tokenizer_config.json
+Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-4740/special_tokens_map.json
 The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
 
 ***** Running Evaluation *****
-  Num examples = 1993
+  Num examples = 399
   Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-4494
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-4494/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-4494/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-4494/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-4494/special_tokens_map.json
+Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-5688
+Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-5688/config.json
+Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-5688/model.safetensors
+tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-5688/tokenizer_config.json
+Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-5688/special_tokens_map.json
 The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
 
 ***** Running Evaluation *****
-  Num examples = 1993
+  Num examples = 399
   Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-5243
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-5243/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-5243/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-5243/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-5243/special_tokens_map.json
+Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-6636
+Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-6636/config.json
+Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-6636/model.safetensors
+tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-6636/tokenizer_config.json
+Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-6636/special_tokens_map.json
 The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
 
 ***** Running Evaluation *****
-  Num examples = 1993
+  Num examples = 399
   Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-5992
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-5992/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-5992/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-5992/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-5992/special_tokens_map.json
+Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-7584
+Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-7584/config.json
+Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-7584/model.safetensors
+tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-7584/tokenizer_config.json
+Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-7584/special_tokens_map.json
 The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
 
 ***** Running Evaluation *****
-  Num examples = 1993
+  Num examples = 399
   Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-6741
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-6741/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-6741/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-6741/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-6741/special_tokens_map.json
+Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-8532
+Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-8532/config.json
+Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-8532/model.safetensors
+tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-8532/tokenizer_config.json
+Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-8532/special_tokens_map.json
 The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
 
 ***** Running Evaluation *****
-  Num examples = 1993
+  Num examples = 399
   Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-7490
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-7490/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-7490/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-7490/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-7490/special_tokens_map.json
-The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
-
-***** Running Evaluation *****
-  Num examples = 1993
-  Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-8239
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-8239/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-8239/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-8239/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-8239/special_tokens_map.json
-The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
-
-***** Running Evaluation *****
-  Num examples = 1993
-  Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-8988
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-8988/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-8988/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-8988/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-8988/special_tokens_map.json
-The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
-
-***** Running Evaluation *****
-  Num examples = 1993
-  Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-9737
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-9737/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-9737/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-9737/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-9737/special_tokens_map.json
-The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
-
-***** Running Evaluation *****
-  Num examples = 1993
-  Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-10486
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-10486/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-10486/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-10486/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-10486/special_tokens_map.json
-The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
-
-***** Running Evaluation *****
-  Num examples = 1993
-  Batch size = 8
-Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-11235
-Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-11235/config.json
-Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-11235/model.safetensors
-tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-11235/tokenizer_config.json
-Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-11235/special_tokens_map.json
+Saving model checkpoint to ./bert-finetuned-nepali-sentiment/checkpoint-9480
+Configuration saved in ./bert-finetuned-nepali-sentiment/checkpoint-9480/config.json
+Model weights saved in ./bert-finetuned-nepali-sentiment/checkpoint-9480/model.safetensors
+tokenizer config file saved in ./bert-finetuned-nepali-sentiment/checkpoint-9480/tokenizer_config.json
+Special tokens file saved in ./bert-finetuned-nepali-sentiment/checkpoint-9480/special_tokens_map.json
 
 
 Training completed. Do not forget to share your model on huggingface.co/models =)
 
 
-Loading best model from ./bert-finetuned-nepali-sentiment/checkpoint-2996 (score: 0.6497130332873597).
+Loading best model from ./bert-finetuned-nepali-sentiment/checkpoint-1896 (score: 0.7363459365377486).
 The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
 
 ***** Running Evaluation *****
-  Num examples = 1993
+  Num examples = 399
   Batch size = 8
 </pre>
 </div>
@@ -9770,10 +10060,21 @@ The following columns in the Evaluation set don't have a corresponding argument 
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
 <div>
-<progress max="250" style="width:300px; height:20px; vertical-align: middle;" value="1000"></progress>
-      [250/250 02:14]
+<progress max="50" style="width:300px; height:20px; vertical-align: middle;" value="100"></progress>
+      [50/50 04:25]
     </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1760365d-6558-4019-bf85-03ec2e49802d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The model overfit when training for 10 epochs. I had set the training arguments to load the <code>best model</code> at the end based on the <code>eval_f1-score</code>, so the <code>best model</code> with the highest <code>f1-score</code> of <code>0.736346</code> is one from epoch 2.</p>
 </div>
 </div>
 </div>
@@ -9793,7 +10094,7 @@ The following columns in the Evaluation set don't have a corresponding argument 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [51]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">trainer</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
@@ -9812,23 +10113,23 @@ The following columns in the Evaluation set don't have a corresponding argument 
 <pre>The following columns in the Evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text. If text are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
 
 ***** Running Evaluation *****
-  Num examples = 1993
+  Num examples = 399
   Batch size = 8
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[51]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[47]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>{'eval_loss': 1.1426713466644287,
- 'eval_accuracy': 0.6818866031108881,
- 'eval_precision': 0.6537779793602534,
- 'eval_recall': 0.6523027576281192,
- 'eval_f1-score': 0.6497130332873597,
- 'eval_runtime': 4.8756,
- 'eval_samples_per_second': 408.771,
- 'eval_steps_per_second': 51.276,
- 'epoch': 15.0}</pre>
+<pre>{'eval_loss': 0.749867856502533,
+ 'eval_accuracy': 0.7593984962406015,
+ 'eval_precision': 0.7371836297196009,
+ 'eval_recall': 0.7390471086463911,
+ 'eval_f1-score': 0.7363459365377486,
+ 'eval_runtime': 1.0163,
+ 'eval_samples_per_second': 392.61,
+ 'eval_steps_per_second': 49.199,
+ 'epoch': 10.0}</pre>
 </div>
 </div>
 </div>
@@ -9838,7 +10139,7 @@ The following columns in the Evaluation set don't have a corresponding argument 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">pipe</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">"text-classification"</span><span class="p">,</span> <span class="n">nepali_bert</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">)</span>
@@ -9860,9 +10161,9 @@ The following columns in the Evaluation set don't have a corresponding argument 
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>[{'label': 'Neutral', 'score': 0.9893887639045715}]</pre>
+<pre>[{'label': 'Neutral', 'score': 0.9886099100112915}]</pre>
 </div>
 </div>
 </div>
@@ -9872,7 +10173,7 @@ The following columns in the Evaluation set don't have a corresponding argument 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [56]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [49]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">pipe</span><span class="p">(</span><span class="s2">"जातीय विभेद दु:खद छ ! समाधान आफै भित्र खोजौ 🇳🇵🇳🇵🇳🇵"</span><span class="p">)</span>
@@ -9886,9 +10187,9 @@ The following columns in the Evaluation set don't have a corresponding argument 
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[56]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[49]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>[{'label': 'Negative', 'score': 0.9203326106071472}]</pre>
+<pre>[{'label': 'Negative', 'score': 0.9684140682220459}]</pre>
 </div>
 </div>
 </div>
@@ -9909,7 +10210,7 @@ The following columns in the Evaluation set don't have a corresponding argument 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [60]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Save model</span>
@@ -9941,7 +10242,7 @@ Special tokens file saved in ./bert-finetuned-nepali-sentiment/model/special_tok
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [61]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [51]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Save tokenizer</span>
@@ -9964,7 +10265,7 @@ Special tokens file saved in ./bert-finetuned-nepali-sentiment/tokenizer/special
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[61]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[51]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>('./bert-finetuned-nepali-sentiment/tokenizer/tokenizer_config.json',
  './bert-finetuned-nepali-sentiment/tokenizer/special_tokens_map.json',
@@ -9980,7 +10281,7 @@ Special tokens file saved in ./bert-finetuned-nepali-sentiment/tokenizer/special
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [82]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">model_path</span> <span class="o">=</span> <span class="s2">"./bert-finetuned-nepali-sentiment/model"</span>
@@ -10012,6 +10313,7 @@ Model config PretrainedConfig {
   ],
   "attention_probs_dropout_prob": 0.1,
   "classifier_dropout": null,
+  "dtype": "float32",
   "hidden_act": "gelu",
   "hidden_dropout_prob": 0.1,
   "hidden_size": 768,
@@ -10034,8 +10336,7 @@ Model config PretrainedConfig {
   "pad_token_id": 0,
   "position_embedding_type": "absolute",
   "problem_type": "single_label_classification",
-  "torch_dtype": "float32",
-  "transformers_version": "4.55.4",
+  "transformers_version": "4.57.1",
   "type_vocab_size": 2,
   "use_cache": true,
   "vocab_size": 30522
@@ -10048,6 +10349,7 @@ Model config BertConfig {
   ],
   "attention_probs_dropout_prob": 0.1,
   "classifier_dropout": null,
+  "dtype": "float32",
   "hidden_act": "gelu",
   "hidden_dropout_prob": 0.1,
   "hidden_size": 768,
@@ -10071,8 +10373,7 @@ Model config BertConfig {
   "pad_token_id": 0,
   "position_embedding_type": "absolute",
   "problem_type": "single_label_classification",
-  "torch_dtype": "float32",
-  "transformers_version": "4.55.4",
+  "transformers_version": "4.57.1",
   "type_vocab_size": 2,
   "use_cache": true,
   "vocab_size": 30522
@@ -10085,6 +10386,7 @@ Model config BertConfig {
   ],
   "attention_probs_dropout_prob": 0.1,
   "classifier_dropout": null,
+  "dtype": "float32",
   "hidden_act": "gelu",
   "hidden_dropout_prob": 0.1,
   "hidden_size": 768,
@@ -10108,8 +10410,7 @@ Model config BertConfig {
   "pad_token_id": 0,
   "position_embedding_type": "absolute",
   "problem_type": "single_label_classification",
-  "torch_dtype": "float32",
-  "transformers_version": "4.55.4",
+  "transformers_version": "4.57.1",
   "type_vocab_size": 2,
   "use_cache": true,
   "vocab_size": 30522
@@ -10122,6 +10423,7 @@ Model config BertConfig {
   ],
   "attention_probs_dropout_prob": 0.1,
   "classifier_dropout": null,
+  "dtype": "float32",
   "hidden_act": "gelu",
   "hidden_dropout_prob": 0.1,
   "hidden_size": 768,
@@ -10145,20 +10447,21 @@ Model config BertConfig {
   "pad_token_id": 0,
   "position_embedding_type": "absolute",
   "problem_type": "single_label_classification",
-  "torch_dtype": "float32",
-  "transformers_version": "4.55.4",
+  "transformers_version": "4.57.1",
   "type_vocab_size": 2,
   "use_cache": true,
   "vocab_size": 30522
 }
 
 loading configuration file ./bert-finetuned-nepali-sentiment/model/config.json
+`torch_dtype` is deprecated! Use `dtype` instead!
 Model config BertConfig {
   "architectures": [
     "BertForSequenceClassification"
   ],
   "attention_probs_dropout_prob": 0.1,
   "classifier_dropout": null,
+  "dtype": "float32",
   "hidden_act": "gelu",
   "hidden_dropout_prob": 0.1,
   "hidden_size": 768,
@@ -10182,8 +10485,7 @@ Model config BertConfig {
   "pad_token_id": 0,
   "position_embedding_type": "absolute",
   "problem_type": "single_label_classification",
-  "torch_dtype": "float32",
-  "transformers_version": "4.55.4",
+  "transformers_version": "4.57.1",
   "type_vocab_size": 2,
   "use_cache": true,
   "vocab_size": 30522
@@ -10191,10 +10493,6 @@ Model config BertConfig {
 
 loading weights file ./bert-finetuned-nepali-sentiment/model/model.safetensors
 Instantiating BertForSequenceClassification model under default dtype torch.float32.
-All model checkpoint weights were used when initializing BertForSequenceClassification.
-
-All the weights of BertForSequenceClassification were initialized from the model checkpoint at ./bert-finetuned-nepali-sentiment/model.
-If your task is similar to the task the model of the checkpoint was trained on, you can already use BertForSequenceClassification for predictions without further training.
 loading file vocab.txt
 loading file tokenizer.json
 loading file added_tokens.json
@@ -10208,6 +10506,7 @@ Model config BertConfig {
   ],
   "attention_probs_dropout_prob": 0.1,
   "classifier_dropout": null,
+  "dtype": "float32",
   "hidden_act": "gelu",
   "hidden_dropout_prob": 0.1,
   "hidden_size": 768,
@@ -10231,8 +10530,7 @@ Model config BertConfig {
   "pad_token_id": 0,
   "position_embedding_type": "absolute",
   "problem_type": "single_label_classification",
-  "torch_dtype": "float32",
-  "transformers_version": "4.55.4",
+  "transformers_version": "4.57.1",
   "type_vocab_size": 2,
   "use_cache": true,
   "vocab_size": 30522
@@ -10245,7 +10543,7 @@ loading file special_tokens_map.json
 loading file tokenizer_config.json
 loading file chat_template.jinja
 loading configuration file ./bert-finetuned-nepali-sentiment/model/config.json
-Configuration saved in /tmp/tmp7ba4ddb3/config.json
+Configuration saved in /tmp/tmpjk_i2rdm/config.json
 loading file vocab.txt
 loading file tokenizer.json
 loading file added_tokens.json
@@ -10259,6 +10557,7 @@ Model config BertConfig {
   ],
   "attention_probs_dropout_prob": 0.1,
   "classifier_dropout": null,
+  "dtype": "float32",
   "hidden_act": "gelu",
   "hidden_dropout_prob": 0.1,
   "hidden_size": 768,
@@ -10282,8 +10581,7 @@ Model config BertConfig {
   "pad_token_id": 0,
   "position_embedding_type": "absolute",
   "problem_type": "single_label_classification",
-  "torch_dtype": "float32",
-  "transformers_version": "4.55.4",
+  "transformers_version": "4.57.1",
   "type_vocab_size": 2,
   "use_cache": true,
   "vocab_size": 30522
@@ -10296,10 +10594,10 @@ loading file special_tokens_map.json
 loading file tokenizer_config.json
 loading file chat_template.jinja
 loading configuration file ./bert-finetuned-nepali-sentiment/model/config.json
-tokenizer config file saved in /tmp/tmp7ba4ddb3/tokenizer_config.json
-Special tokens file saved in /tmp/tmp7ba4ddb3/special_tokens_map.json
-tokenizer config file saved in /tmp/tmp7ba4ddb3/tokenizer_config.json
-Special tokens file saved in /tmp/tmp7ba4ddb3/special_tokens_map.json
+tokenizer config file saved in /tmp/tmpjk_i2rdm/tokenizer_config.json
+Special tokens file saved in /tmp/tmpjk_i2rdm/special_tokens_map.json
+tokenizer config file saved in /tmp/tmpjk_i2rdm/tokenizer_config.json
+Special tokens file saved in /tmp/tmpjk_i2rdm/special_tokens_map.json
 loading file vocab.txt
 loading file tokenizer.json
 loading file added_tokens.json
@@ -10313,6 +10611,7 @@ Model config BertConfig {
   ],
   "attention_probs_dropout_prob": 0.1,
   "classifier_dropout": null,
+  "dtype": "float32",
   "hidden_act": "gelu",
   "hidden_dropout_prob": 0.1,
   "hidden_size": 768,
@@ -10336,8 +10635,7 @@ Model config BertConfig {
   "pad_token_id": 0,
   "position_embedding_type": "absolute",
   "problem_type": "single_label_classification",
-  "torch_dtype": "float32",
-  "transformers_version": "4.55.4",
+  "transformers_version": "4.57.1",
   "type_vocab_size": 2,
   "use_cache": true,
   "vocab_size": 30522
@@ -10350,10 +10648,10 @@ loading file special_tokens_map.json
 loading file tokenizer_config.json
 loading file chat_template.jinja
 loading configuration file ./bert-finetuned-nepali-sentiment/model/config.json
-tokenizer config file saved in /tmp/tmp7ba4ddb3/tokenizer_config.json
-Special tokens file saved in /tmp/tmp7ba4ddb3/special_tokens_map.json
-tokenizer config file saved in /tmp/tmp7ba4ddb3/tokenizer_config.json
-Special tokens file saved in /tmp/tmp7ba4ddb3/special_tokens_map.json
+tokenizer config file saved in /tmp/tmpjk_i2rdm/tokenizer_config.json
+Special tokens file saved in /tmp/tmpjk_i2rdm/special_tokens_map.json
+tokenizer config file saved in /tmp/tmpjk_i2rdm/tokenizer_config.json
+Special tokens file saved in /tmp/tmpjk_i2rdm/special_tokens_map.json
 loading file vocab.txt
 loading file tokenizer.json
 loading file added_tokens.json
@@ -10367,7 +10665,7 @@ Special tokens file saved in ./bert-finetuned-nepali-sentiment/onnx_model/specia
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[82]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>('./bert-finetuned-nepali-sentiment/onnx_model/tokenizer_config.json',
  './bert-finetuned-nepali-sentiment/onnx_model/special_tokens_map.json',
@@ -10394,7 +10692,7 @@ Special tokens file saved in ./bert-finetuned-nepali-sentiment/onnx_model/specia
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [53]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">notebook_login</span><span class="p">()</span>
@@ -10420,7 +10718,7 @@ Special tokens file saved in ./bert-finetuned-nepali-sentiment/onnx_model/specia
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [54]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">MODEL_IDENTIFIER</span> <span class="o">=</span> <span class="s2">"aashish-mahato/nepalibert-sentiment-classifier"</span>
@@ -10434,13 +10732,13 @@ Special tokens file saved in ./bert-finetuned-nepali-sentiment/onnx_model/specia
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [78]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [55]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Push the model to Hugging Face</span>
 <span class="n">trainer</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">push_to_hub</span><span class="p">(</span>
     <span class="n">repo_id</span><span class="o">=</span><span class="n">MODEL_IDENTIFIER</span><span class="p">,</span>
-    <span class="n">commit_message</span><span class="o">=</span><span class="s2">"Initial commit"</span>
+    <span class="n">commit_message</span><span class="o">=</span><span class="s2">"Update model"</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -10453,9 +10751,15 @@ Special tokens file saved in ./bert-finetuned-nepali-sentiment/onnx_model/specia
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>README.md: 0.00B [00:00, ?B/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Configuration saved in /tmp/tmp53oq9ngd/config.json
-Model weights saved in /tmp/tmp53oq9ngd/model.safetensors
+<pre>Configuration saved in /tmp/tmpquj8r45v/config.json
+Model weights saved in /tmp/tmpquj8r45v/model.safetensors
 Uploading the following files to aashish-mahato/nepalibert-sentiment-classifier: README.md,model.safetensors,config.json
 </pre>
 </div>
@@ -10473,9 +10777,9 @@ Uploading the following files to aashish-mahato/nepalibert-sentiment-classifier:
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[78]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[55]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>CommitInfo(commit_url='https://huggingface.co/aashish-mahato/nepalibert-sentiment-classifier/commit/f03be9cf12e38fe9a5c62d3c8630eecef11471c2', commit_message='Initial commit', commit_description='', oid='f03be9cf12e38fe9a5c62d3c8630eecef11471c2', pr_url=None, repo_url=RepoUrl('https://huggingface.co/aashish-mahato/nepalibert-sentiment-classifier', endpoint='https://huggingface.co', repo_type='model', repo_id='aashish-mahato/nepalibert-sentiment-classifier'), pr_revision=None, pr_num=None)</pre>
+<pre>CommitInfo(commit_url='https://huggingface.co/aashish-mahato/nepalibert-sentiment-classifier/commit/d724b14731aff72e2a176ef09092369a2596c423', commit_message='Update model', commit_description='', oid='d724b14731aff72e2a176ef09092369a2596c423', pr_url=None, repo_url=RepoUrl('https://huggingface.co/aashish-mahato/nepalibert-sentiment-classifier', endpoint='https://huggingface.co', repo_type='model', repo_id='aashish-mahato/nepalibert-sentiment-classifier'), pr_revision=None, pr_num=None)</pre>
 </div>
 </div>
 </div>
@@ -10485,13 +10789,13 @@ Uploading the following files to aashish-mahato/nepalibert-sentiment-classifier:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [80]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [56]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Push the tokenizer to Hugging Face</span>
 <span class="n">trainer</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">push_to_hub</span><span class="p">(</span>
     <span class="n">repo_id</span><span class="o">=</span><span class="n">MODEL_IDENTIFIER</span><span class="p">,</span> 
-    <span class="n">commit_message</span><span class="o">=</span><span class="s2">"Initial commit"</span>
+    <span class="n">commit_message</span><span class="o">=</span><span class="s2">"Update model"</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -10506,80 +10810,16 @@ Uploading the following files to aashish-mahato/nepalibert-sentiment-classifier:
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>Trainer.tokenizer is now deprecated. You should use Trainer.processing_class instead.
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>README.md: 0.00B [00:00, ?B/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>tokenizer config file saved in /tmp/tmprtkkj7zq/tokenizer_config.json
-Special tokens file saved in /tmp/tmprtkkj7zq/special_tokens_map.json
+tokenizer config file saved in /tmp/tmp7zcrfmsn/tokenizer_config.json
+Special tokens file saved in /tmp/tmp7zcrfmsn/special_tokens_map.json
 Uploading the following files to aashish-mahato/nepalibert-sentiment-classifier: README.md,tokenizer.json,vocab.txt,special_tokens_map.json,tokenizer_config.json
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[80]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[56]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>CommitInfo(commit_url='https://huggingface.co/aashish-mahato/nepalibert-sentiment-classifier/commit/b147bdbaeb8f6d0d93b36a44da507b0be3566d16', commit_message='Initial commit', commit_description='', oid='b147bdbaeb8f6d0d93b36a44da507b0be3566d16', pr_url=None, repo_url=RepoUrl('https://huggingface.co/aashish-mahato/nepalibert-sentiment-classifier', endpoint='https://huggingface.co', repo_type='model', repo_id='aashish-mahato/nepalibert-sentiment-classifier'), pr_revision=None, pr_num=None)</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6bd85c3f-80dc-4bd9-86f6-a82fa3348ae7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">model_path</span> <span class="o">=</span> <span class="s2">"./bert-finetuned-nepali-sentiment/onnx_model"</span>
-
-<span class="c1"># Load onnx model</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">ORTModelForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
-<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
-
-<span class="c1"># Test inference</span>
-<span class="n">classifier</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s2">"text-classification"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">classifier</span><span class="p">(</span><span class="s2">"यो कार्याक्रम निरन्तर रुपमा चल्नु पर्छ।"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Device set to use cuda:0
-<span class="ansi-yellow-intense-fg">2025-11-19 21:26:06.900740351 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 12 Memcpy nodes are added to the graph main_graph for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.</span>
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[{'label': 'Neutral', 'score': 0.9956146478652954}]
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre><span class="ansi-yellow-intense-fg">2025-11-19 21:26:06.902124001 [W:onnxruntime:, session_state.cc:1316 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.</span>
-<span class="ansi-yellow-intense-fg">2025-11-19 21:26:06.902127096 [W:onnxruntime:, session_state.cc:1318 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.</span>
-</pre>
+<pre>CommitInfo(commit_url='https://huggingface.co/aashish-mahato/nepalibert-sentiment-classifier/commit/5fe850fd14a035815dfb2adf9611870c4aafdeb8', commit_message='Update model', commit_description='', oid='5fe850fd14a035815dfb2adf9611870c4aafdeb8', pr_url=None, repo_url=RepoUrl('https://huggingface.co/aashish-mahato/nepalibert-sentiment-classifier', endpoint='https://huggingface.co', repo_type='model', repo_id='aashish-mahato/nepalibert-sentiment-classifier'), pr_revision=None, pr_num=None)</pre>
 </div>
 </div>
 </div>
@@ -10589,7 +10829,7 @@ Uploading the following files to aashish-mahato/nepalibert-sentiment-classifier:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [57]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Push the ONNX model to Hugging Face</span>
@@ -10600,7 +10840,7 @@ Uploading the following files to aashish-mahato/nepalibert-sentiment-classifier:
     <span class="n">path_or_fileobj</span><span class="o">=</span><span class="s2">"./bert-finetuned-nepali-sentiment/onnx_model/model.onnx"</span><span class="p">,</span>
     <span class="n">path_in_repo</span><span class="o">=</span><span class="s2">"model.onnx"</span><span class="p">,</span>
     <span class="n">repo_id</span><span class="o">=</span><span class="n">MODEL_IDENTIFIER</span><span class="p">,</span>
-    <span class="n">commit_message</span><span class="o">=</span><span class="s2">"Upload ONNX model"</span>
+    <span class="n">commit_message</span><span class="o">=</span><span class="s2">"Update ONNX model"</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -10623,17 +10863,10 @@ Uploading the following files to aashish-mahato/nepalibert-sentiment-classifier:
 <pre>New Data Upload: |          |  0.00B /  0.00B            </pre>
 </div>
 </div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>No files have been modified since last commit. Skipping to prevent empty commit.
-</pre>
-</div>
-</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[57]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>CommitInfo(commit_url='https://huggingface.co/aashish-mahato/nepalibert-sentiment-classifier/commit/d9446bad2e56115dc02019348dbb9569d73e98e7', commit_message='Upload ONNX model', commit_description='', oid='d9446bad2e56115dc02019348dbb9569d73e98e7', pr_url=None, repo_url=RepoUrl('https://huggingface.co/aashish-mahato/nepalibert-sentiment-classifier', endpoint='https://huggingface.co', repo_type='model', repo_id='aashish-mahato/nepalibert-sentiment-classifier'), pr_revision=None, pr_num=None)</pre>
+<pre>CommitInfo(commit_url='https://huggingface.co/aashish-mahato/nepalibert-sentiment-classifier/commit/2054df9c562ddd49322ef467a971a0ca912b590b', commit_message='Update ONNX model', commit_description='', oid='2054df9c562ddd49322ef467a971a0ca912b590b', pr_url=None, repo_url=RepoUrl('https://huggingface.co/aashish-mahato/nepalibert-sentiment-classifier', endpoint='https://huggingface.co', repo_type='model', repo_id='aashish-mahato/nepalibert-sentiment-classifier'), pr_revision=None, pr_num=None)</pre>
 </div>
 </div>
 </div>
