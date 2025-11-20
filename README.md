@@ -2,6 +2,8 @@
 
 ## Inference Demo
 
+https://github.com/user-attachments/assets/c7a1b6b1-42c8-4a30-ba08-3cfaa4854c1e
+
 ## NepaliBERT Sentiment Classification API Endpoints
 ![NepaliBERT Sentiment Classification API Endpoints](NepaliBERT_Sentiment_Classification_API_Endpoints.png)
 
