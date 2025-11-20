@@ -46,6 +46,6 @@ docker run -d -p 8001:8001 -p 7860:7860 --gpus all --name nepali-sentiment-class
 
 ## Hugging Face
 
-You can find the [NepaliBERT Sentiment Classifier] (https://huggingface.co/aashish-mahato/nepalibert-sentiment-classifier) model on Hugging Face.
+You can find the [NepaliBERT Sentiment Classifier](https://huggingface.co/aashish-mahato/nepalibert-sentiment-classifier) model on Hugging Face.
 
 ![NepaliBERT Sentiment Classifier](NepaliBERT_Sentiment_Classifier_Hugging_Face.png)
