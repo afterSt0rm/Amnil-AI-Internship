@@ -1,0 +1,32 @@
+services:
+  nepali-sentiment-classification:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nepalibert-sentiment-classifier:latest
+    ports:
+      - "8001:8001"
+      - "7860:7860"
+    environment:
+      - API_URL=http://localhost:8001
+    volumes:
+      - ./logs:/app/logs
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import requests; exit(0 if requests.get('http://localhost:8001/health').status_code == 200 else 1)",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
