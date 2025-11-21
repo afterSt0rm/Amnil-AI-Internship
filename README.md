@@ -31,18 +31,26 @@ You can find the [NepaliBERT Sentiment Classifier](https://hub.docker.com/r/yoda
 ### How to Run
 
 #### On CPU:
+
 ```bash
 docker run -d -p 8001:8001 -p 7860:7860 --name nepali-sentiment-classifier-app yoda228/nepalibert-sentiment-classifier:latest
 ```
 
 #### On GPU:
+
 ```bash
 docker run -d -p 8001:8001 -p 7860:7860 --gpus all --name nepali-sentiment-classifier-app-gpu yoda228/nepalibert-sentiment-classifier:latest
 ```
 
-> Visit <http://localhost:8001/docs> or <http://127.0.0.1:8001/docs> or <http://0.0.0.0:8001/docs> to access the **NepaliBERT Sentiment Classification API** once the container finishes booting.
+#### Access the NepaliBERT Sentiment Classification API:
 
-> Visit <http://localhost:7860> or <http://127.0.0.1:7860> or <http://0.0.0.0:7860> to access the **NepaliBERT Sentiment Classification Gradio Frontend** once the container finishes booting.
+> Visit <http://localhost:8001/docs> or <http://127.0.0.1:8001/docs> or <http://0.0.0.0:8001/docs> to access the `API` once the container finishes booting.
+
+#### Access the NepaliBERT Sentiment Classification Gradio Frontend:
+
+> ⚠️ Note: Make sure the *NepaliBERT Sentiment Classification API* is running before trying to access the frontend.
+
+> Visit <http://localhost:7860> or <http://127.0.0.1:7860> or <http://0.0.0.0:7860> to access the `Gradio Frontend` once the container finishes booting.
 
 ## Hugging Face
 
